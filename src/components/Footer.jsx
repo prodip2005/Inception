@@ -13,13 +13,14 @@ const Footer = () => {
     ];
 
     return (
-        <footer className="relative z-10 md:ml-28 py-16 px-8 bg-[#08062b]/80 backdrop-blur-xl">
+        // ১. ব্যাকগ্রাউন্ড কালার #08062b থেকে বদলে গাঢ় লালচে-কালো (#0a0202) করা হয়েছে
+        // ২. md:ml-28 সরিয়ে w-full নিশ্চিত করা হয়েছে যাতে এটি স্ক্রিনের দুই মাথা পর্যন্ত পায়
+        <footer className="relative z-10 w-full py-16 px-8 bg-[#0a0202]/90 backdrop-blur-2xl border-t border-white/5">
 
-            {/* টপ অ্যানিমেটেড গ্রাডিয়েন্ট বর্ডার লাইন */}
-            <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-            <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#8a0001] to-transparent shadow-[0_0_15px_#8a0001]"></div>
+            {/* টপ অ্যানিমেটেড গ্রাডিয়েন্ট বর্ডার লাইন (Crimson Glow) */}
+            <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#af0f14] to-transparent shadow-[0_0_20px_#af0f14]"></div>
 
-            <div className="max-w-7xl mx-auto">
+            <div className="max-w-7xl mx-auto md:pl-28"> {/* ল্যাপটপের কন্টেন্টকে ন্যাভবারের জায়গা ছেড়ে দেওয়ার জন্য md:pl-28 */}
                 <div className="flex flex-col md:flex-row justify-between items-center gap-12">
 
                     {/* ব্র্যান্ড সেকশন */}
@@ -28,17 +29,17 @@ const Footer = () => {
                             <img
                                 src={LogoImg}
                                 alt="Inception Logo"
-                                className="w-20 h-20 md:w-24 md:h-24 object-contain filter drop-shadow-[0_0_12px_rgba(138,0,1,0.6)] group-hover:scale-110 transition-transform duration-500"
+                                className="w-20 h-20 md:w-24 md:h-24 object-contain filter drop-shadow-[0_0_15px_rgba(175,15,20,0.6)] group-hover:scale-110 transition-transform duration-500"
                             />
-                            <div className="absolute inset-0 bg-[#8a0001]/15 blur-2xl rounded-full -z-10"></div>
+                            <div className="absolute inset-0 bg-[#af0f14]/20 blur-2xl rounded-full -z-10"></div>
                         </div>
 
                         <div className="flex flex-col items-center sm:items-start">
                             <h2 className="text-4xl font-black tracking-tighter text-white">
-                                INCEPTION<span className="text-[#8a0001] drop-shadow-[0_0_10px_#8a0001]">.</span>
+                                INCEPTION<span className="text-[#af0f14] drop-shadow-[0_0_10px_#af0f14]">.</span>
                             </h2>
-                            <div className="h-0.5 w-full bg-gradient-to-r from-[#8a0001] via-[#8a0001]/50 to-transparent mt-1 shadow-[0_0_15px_#8a0001]"></div>
-                            <p className="text-gray-500 text-[10px] uppercase tracking-[0.4em] mt-3 font-bold">
+                            <div className="h-0.5 w-full bg-gradient-to-r from-[#af0f14] via-[#af0f14]/50 to-transparent mt-1"></div>
+                            <p className="text-gray-400 text-[10px] uppercase tracking-[0.4em] mt-3 font-bold">
                                 Innovation Society
                             </p>
                         </div>
@@ -50,39 +51,29 @@ const Footer = () => {
                             <motion.a
                                 key={index}
                                 href={social.link}
-                                whileHover={{ y: -5, scale: 1.05 }}
-                                transition={{ duration: 0.1 }}
-                                className="relative w-12 h-12 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 text-gray-400 transition-all duration-75 group"
+                                whileHover={{ y: -5, scale: 1.1 }}
+                                className="relative w-12 h-12 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 text-gray-400 group overflow-hidden"
                             >
-                                <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-75 border-[1.5px] border-[#8a0001] bg-[#8a0001]/10 shadow-[inset_0_0_10px_#8a0001]"></div>
-                                <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-75 shadow-[0_0_20px_#8a0001,0_0_40px_rgba(138,0,1,0.4)]"></div>
-                                <span className="relative z-10 text-xl group-hover:text-white group-hover:drop-shadow-[0_0_10px_#ffffff] transition-all duration-75">
+                                {/* আইকনের ভেতর গ্লাস ইফেক্ট */}
+                                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-gradient-to-br from-[#af0f14]/20 to-transparent"></div>
+                                <span className="relative z-10 text-xl group-hover:text-white group-hover:drop-shadow-[0_0_10px_#af0f14]">
                                     {social.icon}
                                 </span>
                             </motion.a>
                         ))}
                     </div>
 
-                    {/* কপিরাইট */}
+                    {/* কপিরাইট ও লোকেশন */}
                     <div className="flex flex-col items-center md:items-end gap-3 text-[10px] tracking-[0.2em] uppercase font-bold text-gray-500">
-                        <div className="flex items-center gap-2 mt-3 text-gray-400 group/loc hover:text-white transition-colors duration-300">
-                            <FaMapMarkerAlt className="text-[#8a0001] text-xl" />
+                        <div className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
+                            <FaMapMarkerAlt className="text-[#af0f14] text-xl" />
                             <span className="text-[13px] font-medium tracking-wider">
                                 Nabinagar, Brahmanbaria
                             </span>
                         </div>
-                        <div className="flex gap-8">
-                            <a href="#" className="hover:text-[#8a0001] transition-all duration-150">Privacy</a>
-                            <a href="#" className="hover:text-[#8a0001] transition-all duration-150">Terms</a>
-                        </div>
-                        <p className="opacity-30">© 2026 INCEPTION • ALL RIGHTS RESERVED</p>
+                        <p className="opacity-40">© 2026 INCEPTION • ALL RIGHTS RESERVED</p>
                     </div>
                 </div>
-            </div>
-
-            {/* বটম অ্যানিমেটেড গ্রাডিয়েন্ট লাইন (নতুন ডিজাইন) */}
-            <div className="absolute bottom-0 left-0 w-full h-px overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-r from-transparent via-[#8a0001] to-transparent animate-shimmer shadow-[0_0_10px_#8a0001]"></div>
             </div>
 
             <style dangerouslySetInnerHTML={{
@@ -92,7 +83,7 @@ const Footer = () => {
                     100% { transform: translateX(100%); }
                 }
                 .animate-shimmer {
-                    animation: shimmer 3s infinite linear;
+                    animation: shimmer 4s infinite linear;
                 }
             `}} />
         </footer>

@@ -19,10 +19,10 @@ const Navbar = () => {
 
     return (
         <>
-            {/* --- ১. ল্যাপটপ/ডেস্কটপ ন্যাভবার (আপনার অরিজিনাল ডিজাইন - NO CHANGE) --- */}
-            <div className="fixed left-6 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center">
-                <nav className="flex flex-col items-center gap-4 p-4 bg-white/[0.01] hover:bg-white/[0.03] backdrop-blur-md border border-white/5 rounded-full transition-all duration-500 hover:border-[#8a0001]/30 relative z-10 shadow-none group/nav">
-                    <Link to="/" className="w-16 h-16 flex items-center justify-center bg-white/[0.02] group-hover/nav:bg-white/5 rounded-full mb-2 overflow-hidden border border-white/5 transition-all duration-300 hover:border-[#8a0001]/40">
+            {/* --- ১. ল্যাপটপ/ডেস্কটপ ন্যাভবার --- */}
+            <div className="fixed left-6 top-3/7 -translate-y-1/2 z-50 hidden md:flex flex-col items-center">
+                <nav className="flex flex-col items-center gap-4 p-4 bg-white/[0.01] hover:bg-white/[0.03] backdrop-blur-md border border-white/5 rounded-full transition-all duration-500 hover:border-[#af0f14]/30 relative z-10 shadow-none group/nav">
+                    <Link to="/" className="w-16 h-16 flex items-center justify-center bg-white/[0.02] group-hover/nav:bg-white/5 rounded-full mb-2 overflow-hidden border border-white/5 transition-all duration-300 hover:border-[#af0f14]/40">
                         <img src={LogoImg} alt="Logo" className="w-15 h-15 object-contain transition-transform duration-500 hover:scale-110" />
                     </Link>
 
@@ -32,7 +32,7 @@ const Navbar = () => {
                                 <a href={item.link} className="p-4 text-gray-500 hover:text-white transition-all duration-300 rounded-full inline-block">
                                     <span className="text-xl">{item.icon}</span>
                                 </a>
-                                <span className="absolute left-16 scale-0 group-hover:scale-100 transition-all duration-300 origin-left bg-[#8a0001] text-white text-[10px] font-bold py-1.5 px-3 rounded-md uppercase tracking-widest shadow-xl whitespace-nowrap">
+                                <span className="absolute left-16 scale-0 group-hover:scale-100 transition-all duration-300 origin-left bg-[#af0f14] text-white text-[10px] font-bold py-1.5 px-3 rounded-md uppercase tracking-widest shadow-xl whitespace-nowrap">
                                     {item.label}
                                 </span>
                             </div>
@@ -47,39 +47,58 @@ const Navbar = () => {
                     </svg>
                 </div>
 
+                {/* ল্যাপটপ জয়েন বাটন: Neon & Glass Effect with Hover Fill */}
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} whileHover={{ y: 5, scale: 1.05 }}>
                     <Link to="/#join" className="group relative flex flex-col items-center gap-2 -mt-2 cursor-pointer">
                         <div className="relative">
-                            <motion.div animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0.7, 0.3] }} transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }} className="absolute inset-0 bg-[#8a0001] blur-[30px] rounded-full"></motion.div>
-                            <div className="w-14 h-14 bg-white/[0.05] backdrop-blur-2xl rounded-2xl flex items-center justify-center border border-white/20 transition-all duration-500 group-hover:bg-[#8a0001] group-hover:border-[#8a0001] z-10 relative overflow-hidden">
-                                <FaUserPlus className="text-xl text-white group-hover:scale-110 transition-transform duration-300 shadow-2xl" />
-                                <motion.div animate={{ x: ['-150%', '150%'] }} transition={{ duration: 3, repeat: Infinity, ease: "linear" }} className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"></motion.div>
+                            {/* বাইরের নিয়ন গ্লো (ডিফল্ট নীল রাখা হয়েছে, চাইলে #af0f14 করতে পারেন) */}
+                            <motion.div animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.6, 0.3] }} transition={{ duration: 2, repeat: Infinity }} className="absolute inset-0 bg-[#3b82f6] blur-[25px] rounded-2xl group-hover:bg-[#af0f14] transition-colors duration-500"></motion.div>
+
+                            <div className="w-14 h-14 bg-white/[0.08] backdrop-blur-3xl rounded-2xl flex items-center justify-center border border-white/30 shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-500 group-hover:bg-[#af0f14] group-hover:border-[#af0f14] group-hover:shadow-[0_0_30px_#af0f14] z-10 relative overflow-hidden">
+                                <FaUserPlus className="text-xl text-white group-hover:scale-110 group-hover:rotate-6 transition-all duration-300" />
+
+                                {/* গ্লাস শিমার ইফেক্ট */}
+                                <motion.div animate={{ x: ['-200%', '200%'] }} transition={{ duration: 3, repeat: Infinity, ease: "linear" }} className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12"></motion.div>
                             </div>
                         </div>
+
                         <div className="relative flex flex-col items-center">
-                            <span className="relative text-[12px] font-black uppercase tracking-[0.25em] font-mono transition-all duration-500 text-white group-hover:tracking-[0.4em]">
-                                <span className="absolute inset-0 text-[#8a0001] blur-[15px] opacity-80 group-hover:opacity-100 transition-opacity">Join Now</span>
-                                <span className="relative z-10 drop-shadow-[0_0_10px_rgba(138,0,1,1)]">Join Now</span>
+                            <span className="relative text-[12px] font-black uppercase tracking-[0.25em] font-mono text-white transition-all duration-300 group-hover:text-[#af0f14] group-hover:drop-shadow-[0_0_8px_#af0f14]">
+                                Join Now
                             </span>
-                            <motion.div animate={{ width: ['20%', '100%', '20%'], opacity: [0.5, 1, 0.5] }} transition={{ duration: 3, repeat: Infinity }} className="h-[2px] bg-[#8a0001] mt-1 shadow-[0_0_15px_#8a0001] rounded-full group-hover:bg-white"></motion.div>
+
+                            {/* নিচের লাইনের এনিমেশন: হোভারে উইডথ এবং গ্লো বাড়বে */}
+                            <div className="relative w-8 h-[2px] bg-[#3b82f6] mt-1 overflow-hidden transition-all duration-500 group-hover:w-full group-hover:bg-[#af0f14] group-hover:shadow-[0_0_15px_#af0f14] rounded-full">
+                                <motion.div
+                                    animate={{ x: ['-100%', '100%'] }}
+                                    transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+                                    className="absolute inset-0 bg-white/60"
+                                ></motion.div>
+                            </div>
                         </div>
                     </Link>
                 </motion.div>
             </div>
 
-            {/* --- ২. মোবাইল ন্যাভবার (ফোনের জন্য আলাদা ডিজাইন) --- */}
-            <div className="fixed top-0 left-0 w-full z-[60] md:hidden bg-[#08062b]/80 backdrop-blur-xl border-b border-white/10 px-5 py-3 flex justify-between items-center">
+            {/* --- ২. মোবাইল ন্যাভবার --- */}
+            <div className="fixed top-0 left-0 w-full z-[60] md:hidden bg-[#0a0a0a]/80 backdrop-blur-2xl border-b border-white/10 px-5 py-3 flex justify-between items-center">
                 <Link to="/" className="flex items-center gap-2">
                     <img src={LogoImg} alt="Logo" className="w-10 h-10 object-contain" />
-                    <span className="text-white font-black tracking-tighter text-lg uppercase">INCEPTION<span className="text-[#8a0001]">_</span></span>
+                    <span className="text-white font-black tracking-tighter text-lg uppercase italic">INCEPTION<span className="text-[#af0f14]">_</span></span>
                 </Link>
 
                 <div className="flex items-center gap-3">
-                    <Link to="/#join" className="w-10 h-10 bg-[#8a0001] rounded-xl flex items-center justify-center shadow-[0_0_15px_rgba(138,0,1,0.5)]">
-                        <FaUserPlus className="text-white text-sm" />
+                    {/* মোবাইল জয়েন বাটন: Neon & Glass */}
+                    <Link to="/#join" className="relative group">
+                        <motion.div animate={{ opacity: [0.4, 0.7, 0.4] }} transition={{ duration: 1.5, repeat: Infinity }} className="absolute inset-0 bg-[#af0f14] blur-lg rounded-xl"></motion.div>
+                        <div className="relative w-11 h-11 bg-white/[0.1] backdrop-blur-xl border border-white/40 rounded-xl flex items-center justify-center z-10 shadow-[0_0_15px_rgba(175,15,20,0.5)] overflow-hidden">
+                            <FaUserPlus className="text-white text-sm" />
+                            <motion.div animate={{ x: ['-200%', '200%'] }} transition={{ duration: 2.5, repeat: Infinity }} className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"></motion.div>
+                        </div>
                     </Link>
-                    <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-white p-2 bg-white/5 rounded-lg border border-white/10">
-                        {isMobileMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+
+                    <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-white p-2.5 bg-white/5 rounded-xl border border-white/10 active:scale-90 transition-transform">
+                        {isMobileMenuOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
                     </button>
                 </div>
             </div>
@@ -87,11 +106,11 @@ const Navbar = () => {
             {/* মোবাইল মেনু কন্টেন্ট */}
             <AnimatePresence>
                 {isMobileMenuOpen && (
-                    <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="fixed top-[64px] left-0 w-full h-auto bg-[#08062b]/95 backdrop-blur-3xl z-[55] md:hidden border-b border-white/10 shadow-2xl">
-                        <div className="grid grid-cols-2 gap-3 p-6">
+                    <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="fixed top-[68px] left-0 w-full h-auto bg-[#0a0a0a]/95 backdrop-blur-3xl z-[55] md:hidden border-b border-[#af0f14]/20 shadow-2xl">
+                        <div className="grid grid-cols-2 gap-3 p-6 pb-12">
                             {navItems.map((item, index) => (
-                                <a key={index} href={item.link} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 p-4 bg-white/[0.03] border border-white/5 rounded-xl hover:bg-[#8a0001]/20 transition-all">
-                                    <span className="text-[#8a0001] text-lg">{item.icon}</span>
+                                <a key={index} href={item.link} onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 p-4 bg-white/[0.03] border border-white/5 rounded-2xl active:bg-[#af0f14]/20 transition-all border-l-2 border-l-transparent active:border-l-[#af0f14]">
+                                    <span className="text-[#af0f14] text-lg">{item.icon}</span>
                                     <span className="text-white text-[10px] font-bold uppercase tracking-widest">{item.label}</span>
                                 </a>
                             ))}

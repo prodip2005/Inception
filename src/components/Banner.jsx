@@ -32,6 +32,7 @@ const Banner = () => {
                 </motion.div>
 
                 {/* 2. Main Headline */}
+                {/* 2. Main Headline */}
                 <div className="relative">
                     <motion.div
                         variants={fadeInUp}
@@ -39,8 +40,8 @@ const Banner = () => {
                         animate="animate"
                         transition={{ duration: 0.8 }}
                     >
-                        {/* Adjusted text size for mobile (text-5xl) to desktop (text-[140px]) */}
-                        <h1 className="text-5xl sm:text-7xl md:text-9xl lg:text-[140px] font-black bg-clip-text text-transparent bg-gradient-to-r from-[#8a0001] via-red-500 to-white leading-[0.9] md:leading-[0.85] tracking-tighter uppercase mb-4">
+                        {/* ফোনের জন্য text-7xl এবং leading-[0.8] করা হয়েছে যাতে বড় দেখায় */}
+                        <h1 className="text-6xl sm:text-6xl md:text-9xl lg:text-[140px] font-black bg-clip-text text-transparent bg-gradient-to-r from-[#8a0001] via-red-500 to-white leading-[0.8] sm:leading-[0.9] md:leading-[0.85] tracking-tighter uppercase mb-4">
                             INCEPTION
                         </h1>
                         <h2 className="text-xl sm:text-2xl md:text-6xl font-bold text-white/90 tracking-tight max-w-4xl">
@@ -87,7 +88,7 @@ const Banner = () => {
                     </motion.div>
 
                     {/* 5. Status Cards */}
-                    <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-4">
                         {[
                             { icon: <FaRocket />, title: "Innovation", desc: "Future-ready skills" },
                             { icon: <FaLightbulb />, title: "Creative", desc: "Beyond limits" },
