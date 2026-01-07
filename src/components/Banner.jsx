@@ -10,7 +10,7 @@ const Banner = () => {
     };
 
     return (
-        <section id='home' className="relative min-h-screen flex flex-col justify-center py-10 md:py-20 overflow-hidden">
+        <section id='home' className="relative min-h-screen flex flex-col justify-center py-10 md:py-20">
 
             {/* Background Decoration (Ambient Light) */}
             <div className="absolute top-[15%] right-[-10%] w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-[#8a0001]/10 blur-[100px] md:blur-[150px] rounded-full pointer-events-none"></div>
