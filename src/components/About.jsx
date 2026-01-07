@@ -10,7 +10,7 @@ const About = () => {
     ];
 
     return (
-        <section id="about" className="py-24 relative overflow-hidden bg-transparent">
+        <section id="about" className="py-24 relative  bg-transparent">
             {/* Ambient Lighting Overlay */}
             <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none"></div>
 

@@ -24,7 +24,7 @@ const Members = () => {
     ];
 
     return (
-        <section id="members" className="py-24 relative overflow-hidden bg-transparent">
+        <section id="members" className="py-24 relative  bg-transparent">
             {/* Ambient Background Lights */}
             <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none"></div>
             <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[#8a0001]/5 blur-[120px] rounded-full pointer-events-none"></div>
