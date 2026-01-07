@@ -31,70 +31,90 @@ const Events = () => {
     ];
 
     return (
-        <section id='events' className="py-20 relative px-4">
-            {/* সেকশন টাইটেল */}
-            <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="mb-16 ml-8 md:ml-16"
-            >
-                <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter italic">
-                    Our <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#8a0001] via-red-500  to-white font-black uppercase tracking-tighter">
-                        Timeline
-                    </span>
-                </h2>
-                <p className="text-gray-500 mt-2 uppercase tracking-[0.3em] text-xs font-bold">Roadmap to Success</p>
-            </motion.div>
+        <section id='events' className="py-24 relative px-6 overflow-hidden">
+            {/* Background Ambient Glow */}
+            <div className="absolute top-1/2 left-0 w-72 h-72 bg-[#8a0001]/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-            <div className="relative max-w-3xl mx-auto">
+            <div className="max-w-5xl mx-auto">
+                {/* --- সেকশন টাইটেল (ফিক্সড ওভারল্যাপ) --- */}
+                <motion.div
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    className="mb-20 text-left"
+                >
+                    <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none">
+                        OUR <br />
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#8a0001] via-red-500 to-white">
+                            TIMELINE
+                        </span>
+                        <span className="text-[#8a0001] animate-pulse">_</span>
+                    </h2>
+                    <div className="flex items-center gap-3 mt-4">
+                        <div className="h-[1px] w-12 bg-[#8a0001]"></div>
+                        <p className="text-gray-500 uppercase tracking-[0.4em] text-[10px] font-bold">
+                            Roadmap to Success
+                        </p>
+                    </div>
+                </motion.div>
 
-                {/* ১. ভার্টিক্যাল লাইন (Tree Trunk) - একদম বাম পাশে */}
-                <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#8a0001] via-white/20 to-transparent"></div>
+                <div className="relative max-w-3xl ml-4 md:ml-20">
+                    {/* ১. ভার্টিক্যাল মেইন লাইন */}
+                    <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-gradient-to-b from-[#8a0001] via-white/10 to-transparent"></div>
 
-                {/* ইভেন্ট লিস্ট */}
-                <div className="space-y-12">
-                    {eventData.map((event, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: index * 0.15 }}
-                            className="relative pl-10"
-                        >
-                            {/* ২. টাইমলাইন কানেক্টর ডট (সিম্পল সার্কেল) */}
-                            <div className="absolute left-[-5px] top-2 w-3 h-3 bg-[#8a0001] rounded-full shadow-[0_0_10px_#8a0001]"></div>
-
-                            {/* ৩. গ্লাসি কার্ড */}
+                    {/* ইভেন্ট লিস্ট */}
+                    <div className="space-y-16">
+                        {eventData.map((event, index) => (
                             <motion.div
-                                whileHover={{ x: 10 }}
-                                className="p-6 bg-white/[0.02] backdrop-blur-xl border-l-2 border-[#8a0001] rounded-r-2xl rounded-l-sm relative group transition-all duration-300 shadow-[20px_0_40px_rgba(0,0,0,0.2)]"
+                                key={index}
+                                initial={{ opacity: 0, x: 20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true, margin: "-100px" }}
+                                transition={{ duration: 0.7, delay: index * 0.1 }}
+                                className="relative pl-10 md:pl-16"
                             >
-                                {/* হোভারে হালকা গ্লো */}
-                                <div className="absolute inset-0 bg-gradient-to-r from-[#8a0001]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-r-2xl"></div>
+                                {/* ২. কানেক্টর ডট ও এনিমেশন */}
+                                <div className="absolute left-[-4px] top-3 w-2 h-2 bg-[#8a0001] rounded-full">
+                                    <div className="absolute inset-0 bg-[#8a0001] rounded-full animate-ping opacity-40"></div>
+                                </div>
 
-                                <div className="relative z-10">
-                                    <div className="flex flex-wrap items-center gap-4 mb-3">
-                                        <span className="text-[#8a0001] font-black text-xs uppercase tracking-widest flex items-center gap-2">
-                                            <FaCalendarAlt /> {event.date}
-                                        </span>
-                                        <span className="text-white/40 text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
-                                            <FaMapMarkerAlt /> {event.location}
-                                        </span>
+                                {/* ৩. গ্লাসি কার্ড (ট্রান্সপারেন্ট ও প্রফেশনাল) */}
+                                <motion.div
+                                    whileHover={{ x: 10 }}
+                                    className="p-8 bg-white/[0.01] backdrop-blur-2xl border border-white/5 border-l-2 border-l-[#8a0001] rounded-2xl relative group transition-all duration-500"
+                                >
+                                    {/* কার্ড হোভার গ্লো */}
+                                    <div className="absolute inset-0 bg-gradient-to-br from-[#8a0001]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
+
+                                    <div className="relative z-10">
+                                        <div className="flex flex-wrap items-center gap-6 mb-4">
+                                            <div className="flex items-center gap-2 text-[#8a0001] font-mono text-xs font-bold uppercase tracking-widest">
+                                                <FaCalendarAlt className="text-[10px]" />
+                                                {event.date}
+                                            </div>
+                                            <div className="flex items-center gap-2 text-white/30 font-mono text-[10px] uppercase tracking-widest">
+                                                <FaMapMarkerAlt />
+                                                {event.location}
+                                            </div>
+                                        </div>
+
+                                        <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-white transition-colors uppercase tracking-tight mb-3">
+                                            {event.title}
+                                        </h3>
+
+                                        <p className="text-gray-500 text-sm md:text-base leading-relaxed max-w-xl font-light">
+                                            {event.description}
+                                        </p>
                                     </div>
 
-                                    <h3 className="text-xl font-bold mb-2 group-hover:text-[#8a0001] transition-colors uppercase tracking-tight">
-                                        {event.title}
-                                    </h3>
-
-                                    <p className="text-gray-400 text-sm leading-relaxed max-w-xl">
-                                        {event.description}
-                                    </p>
-                                </div>
+                                    {/* ডেকোরেশন লাইন */}
+                                    <div className="absolute top-4 right-6 text-white/[0.03] font-black text-4xl italic select-none pointer-events-none">
+                                        0{index + 1}
+                                    </div>
+                                </motion.div>
                             </motion.div>
-                        </motion.div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>

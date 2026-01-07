@@ -32,17 +32,17 @@ const Home = () => {
                 <Mission />
             </section>
 
-            <section id="events" className="min-h-screen flex flex-col justify-center py-20">
+            <section id="events" className="min-h-screen flex flex-col justify-center py-5 md:py-20">
                 <Events />
             </section>
-            <section id="members" className="min-h-screen flex flex-col justify-center py-20">
-                <Members/>
+            <section id="members" className="min-h-screen flex flex-col justify-center py-5 md:py-20">
+                <Members />
             </section>
-            <section id="about" className="min-h-screen flex flex-col justify-center py-20">
-                <About/>
+            <section id="about" className="min-h-screen flex flex-col justify-center py-5 md:py-20">
+                <About />
             </section>
-            <section id="contact" className="min-h-screen flex flex-col justify-center py-20">
-                <Contact/>
+            <section id="contact" className="min-h-screen flex flex-col justify-center py-5 md:py-20">
+                <Contact />
             </section>
 
             {/* অন্যান্য সেকশনগুলো এখানে যোগ করতে পারেন একইভাবে */}

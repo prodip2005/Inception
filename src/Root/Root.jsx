@@ -57,11 +57,12 @@ const Root = () => {
             <Navbar />
 
             {/* মূল কন্টেন্ট */}
-            <main className="relative z-10 flex-grow w-full">
+
+            < main className="relative z-10 flex-grow w-full pt-20 md:pt-0" >
                 <div className="max-w-6xl mx-auto px-6 min-h-screen flex flex-col">
                     <Outlet />
                 </div>
-            </main>
+            </main >
 
             <Footer />
 
