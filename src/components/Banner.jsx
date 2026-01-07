@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaArrowRight, FaMapMarkerAlt, FaRocket, FaLightbulb, FaUsers } from 'react-icons/fa';
+import { MinimalMissionButton } from './AnimatedMissionButton';
 
 const Banner = () => {
     // Animation Variants
@@ -74,11 +75,7 @@ const Banner = () => {
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center">
-                            <button className="group relative px-8 py-4 bg-[#8a0001] rounded-full font-bold overflow-hidden transition-all active:scale-95 w-full sm:w-auto">
-                                <span className="relative z-10 flex items-center justify-center gap-3 uppercase tracking-widest text-xs text-white">
-                                    Our Vision <FaArrowRight className="group-hover:translate-x-2 transition-transform" />
-                                </span>
-                            </button>
+                            <MinimalMissionButton/>
 
                             <div className="flex items-center gap-3 text-white/60 border-l-0 sm:border-l border-white/10 pl-0 sm:pl-6 h-auto sm:h-10">
                                 <FaMapMarkerAlt className="text-[#8a0001]" />

@@ -1,21 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Institution from './Institutioin';
 
 const Institutions = () => {
-    // ডামি ডাটা (আপনি এখানে আপনার অরিজিনাল ডাটা বসাতে পারেন)
-    const allData = Array.from({ length: 20 }).map((_, i) => ({
-        id: i,
-        name: `Institution Name ${i + 1}`,
-        img: "https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=500",
-        desc: "A brief description of the academic affiliation and impact on the research ecosystem."
-    }));
-
+    const [allData, setAllData] = useState([]); // ডেটা স্টোর করার জন্য
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 8;
-    const totalPages = Math.ceil(allData.length / itemsPerPage);
+    const [loading, setLoading] = useState(true); // লোডিং স্টেট
 
+    const itemsPerPage = 8;
+
+    // ১. JSON ফাইল থেকে ডেটা ফেচ করা
+    useEffect(() => {
+        fetch('/institutions.json') // পাবলিক ফোল্ডার থেকে ফাইলটি রিড করবে
+            .then((response) => response.json())
+            .then((data) => {
+                setAllData(data);
+                setLoading(false);
+            })
+            .catch((error) => {
+                console.error('Error fetching institutions:', error);
+                setLoading(false);
+            });
+    }, []);
+
+    const totalPages = Math.ceil(allData.length / itemsPerPage);
     const currentItems = allData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+    if (loading) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-transparent">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#8a0001]"></div>
+            </div>
+        );
+    }
 
     return (
         <div className="min-h-screen bg-transparent py-24 pt-32">
@@ -26,7 +43,7 @@ const Institutions = () => {
                         AFFILIATIONS<span className="text-[#8a0001]">_</span>
                     </h2>
                     <p className="text-slate-500 font-mono text-sm tracking-[0.3em] mt-4 uppercase">
-                        // Authorized_Partner_Network
+                        // Total_Institutions: {allData.length}
                     </p>
                 </div>
 
@@ -34,29 +51,39 @@ const Institutions = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <AnimatePresence mode='wait'>
                         {currentItems.map((item) => (
-                            <Institution key={item.id} item={item} />
+                            <motion.div
+                                key={item.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, scale: 0.95 }}
+                                transition={{ duration: 0.5 }}
+                            >
+                                <Institution item={item} />
+                            </motion.div>
                         ))}
                     </AnimatePresence>
                 </div>
 
-                {/* Pagination */}
-                <div className="mt-20 flex justify-center items-center gap-4">
-                    {Array.from({ length: totalPages }).map((_, i) => (
-                        <button
-                            key={i}
-                            onClick={() => {
-                                setCurrentPage(i + 1);
-                                window.scrollTo({ top: 0, behavior: 'smooth' });
-                            }}
-                            className={`px-5 py-2 rounded-xl font-mono text-xs transition-all duration-300 ${currentPage === i + 1
-                                    ? 'bg-[#8a0001] text-white shadow-[0_0_20px_rgba(138,0,1,0.5)] scale-110'
-                                    : 'bg-white/5 text-slate-500 hover:bg-white/10'
-                                }`}
-                        >
-                            PAGE_{i + 1}
-                        </button>
-                    ))}
-                </div>
+                {/* Pagination (শুধু যদি ১ পেজের বেশি ডেটা থাকে) */}
+                {totalPages > 1 && (
+                    <div className="mt-20 flex flex-wrap justify-center items-center gap-4">
+                        {Array.from({ length: totalPages }).map((_, i) => (
+                            <button
+                                key={i}
+                                onClick={() => {
+                                    setCurrentPage(i + 1);
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }}
+                                className={`px-5 py-2 rounded-xl font-mono text-xs transition-all duration-300 ${currentPage === i + 1
+                                        ? 'bg-[#8a0001] text-white shadow-[0_0_20px_rgba(138,0,1,0.5)] scale-110'
+                                        : 'bg-white/5 text-slate-500 hover:bg-white/10'
+                                    }`}
+                            >
+                                PAGE_{i + 1}
+                            </button>
+                        ))}
+                    </div>
+                )}
             </div>
         </div>
     );

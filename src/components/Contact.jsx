@@ -32,29 +32,27 @@ const Contact = () => {
                     {/* --- Left Column: Typography & Info --- */}
                     <div className="lg:col-span-5 flex flex-col justify-center">
                         <motion.div variants={itemVariants} className="mb-12">
-                            <h2 className="text-6xl md:text-8xl font-black text-white leading-none tracking-tighter uppercase">
-                                START A <br />
+                            <h2 className="text-6xl md:text-[92px] font-black text-white leading-none tracking-tighter uppercase">
                                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#8a0001] via-red-500 to-white">
-                                    PROJECT_
-                                </span>
+                                    Partner
+                                </span> <br />
+                                with us_
                             </h2>
-                            <p className="text-slate-400 mt-6 text-lg font-light max-w-md italic">
-                                "// Establishing secure connection..."
-                            </p>
+                           
                         </motion.div>
 
                         <motion.div variants={itemVariants} className="space-y-6">
                             {[
                                 { icon: <FaEnvelope />, text: "ops@inception.com", label: "Email Us" },
                                 { icon: <FaPhoneAlt />, text: "+880 1234 567 890", label: "Call Us" },
-                                { icon: <FaMapMarkerAlt />, text: "Dhaka, Bangladesh", label: "Visit Us" }
+                                { icon: <FaMapMarkerAlt />, text: "Nabinagar,Brahmanbaria", label: "Visit Us" }
                             ].map((item, i) => (
                                 <div key={i} className="flex items-center gap-5 group cursor-pointer">
                                     <div className="w-12 h-12 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-[#8a0001] group-hover:bg-[#8a0001] group-hover:text-white transition-all duration-500 backdrop-blur-md">
                                         {item.icon}
                                     </div>
                                     <div>
-                                        <p className="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-mono">{item.label}</p>
+                                        <p className="text-[15px] text-slate-500 uppercase tracking-[0.2em] font-black">{item.label}</p>
                                         <p className="text-white font-medium group-hover:text-[#8a0001] transition-colors">{item.text}</p>
                                     </div>
                                 </div>
@@ -68,7 +66,7 @@ const Contact = () => {
                             
                             {/* Subtitle inside form */}
                             <div className="mb-10">
-                                <h3 className="text-white font-bold text-xl uppercase tracking-widest">Secure Messaging</h3>
+                                <h3 className="text-white font-bold text-xl uppercase tracking-widest">Contact with us</h3>
                                 <div className="h-[2px] w-12 bg-[#8a0001] mt-2"></div>
                             </div>
 
@@ -83,7 +81,7 @@ const Contact = () => {
                                             placeholder="Full Name" 
                                         />
                                         <label className="absolute left-6 top-4 text-slate-500 text-sm transition-all peer-focus:-top-7 peer-focus:left-2 peer-focus:text-[#8a0001] peer-focus:text-xs peer-[:not(:placeholder-shown)]:-top-7 peer-[:not(:placeholder-shown)]:left-2 peer-[:not(:placeholder-shown)]:text-xs">
-                                            FULL NAME
+                                            NICK NAME
                                         </label>
                                     </div>
 
@@ -119,7 +117,7 @@ const Contact = () => {
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-r from-[#8a0001] to-red-600 transition-all duration-500 group-hover/btn:scale-105"></div>
                                     <div className="relative flex items-center justify-center gap-3 text-white font-bold uppercase tracking-[0.4em] text-[10px]">
-                                        Dispatch Message <FaPaperPlane className="group-hover/btn:translate-x-2 group-hover/btn:-translate-y-1 transition-transform" />
+                                        Send Message <FaPaperPlane className="group-hover/btn:translate-x-2 group-hover/btn:-translate-y-1 transition-transform" />
                                     </div>
                                 </motion.button>
                             </form>

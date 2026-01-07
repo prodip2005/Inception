@@ -1,0 +1,177 @@
+[
+    {
+        "id": 1,
+        "name": "Abrar Haider",
+        "role": "Executive Lead",
+        "img": "https://i.pravatar.cc/150?u=abrar",
+        "bio": "Directing strategic vision and organizational architecture for the core inquiry mission."
+    },
+    {
+        "id": 2,
+        "name": "Tanvir Mahbub",
+        "role": "Strategic Ops",
+        "img": "https://i.pravatar.cc/150?u=tanvir",
+        "bio": "Specialized in streamlining complex workflows and large-scale project logistics."
+    },
+    {
+        "id": 3,
+        "name": "Nabila Ishrat",
+        "role": "Core Researcher",
+        "img": "https://i.pravatar.cc/150?u=nabila",
+        "bio": "Analyzing educational data patterns to foster deep inquiry-based learning models."
+    },
+    {
+        "id": 4,
+        "name": "Sajid Bin Alam",
+        "role": "Lead Architect",
+        "img": "https://i.pravatar.cc/150?u=sajid",
+        "bio": "Designing high-performance digital infrastructures and secured data ecosystems."
+    },
+    {
+        "id": 5,
+        "name": "Farhan Ahmed",
+        "role": "Academic Lead",
+        "img": "https://i.pravatar.cc/150?u=farhan",
+        "bio": "Bridging the gap between institutional curriculum and advanced research tools."
+    },
+    {
+        "id": 6,
+        "name": "Sultana Razia",
+        "role": "Public Relations",
+        "img": "https://i.pravatar.cc/150?u=razia",
+        "bio": "Managing global outreach and building sustainable institutional partnerships."
+    },
+    {
+        "id": 7,
+        "name": "Imtiaz Hossain",
+        "role": "Field Researcher",
+        "img": "https://i.pravatar.cc/150?u=imtiaz",
+        "bio": "Gathering grassroots intelligence to refine educational outreach strategies."
+    },
+    {
+        "id": 8,
+        "name": "Mehedi Hasan",
+        "role": "Creative Lead",
+        "img": "https://i.pravatar.cc/150?u=mehedi",
+        "bio": "Visualizing complex abstract data into compelling and intuitive narratives."
+    },
+    {
+        "id": 9,
+        "name": "Sadia Afrin",
+        "role": "Content Strategist",
+        "img": "https://i.pravatar.cc/150?u=sadia",
+        "bio": "Curating intellectual content focused on critical thinking and logic."
+    },
+    {
+        "id": 10,
+        "name": "Kamrul Hassan",
+        "role": "Systems Analyst",
+        "img": "https://i.pravatar.cc/150?u=kamrul",
+        "bio": "Optimizing internal protocols for seamless personnel data management."
+    },
+    {
+        "id": 11,
+        "name": "Anika Tabassum",
+        "role": "Social Analyst",
+        "img": "https://i.pravatar.cc/150?u=anika",
+        "bio": "Studying behavioral impact of inquiry models on local student communities."
+    },
+    {
+        "id": 12,
+        "name": "Arifur Rahman",
+        "role": "Technical Advisor",
+        "img": "https://i.pravatar.cc/150?u=arif",
+        "bio": "Evaluating emerging technologies for core mission integration and security."
+    },
+    {
+        "id": 13,
+        "name": "Mousumi Akter",
+        "role": "Event Manager",
+        "img": "https://i.pravatar.cc/150?u=mousumi",
+        "bio": "Coordinating high-impact intellectual symposiums and youth workshops."
+    },
+    {
+        "id": 14,
+        "name": "Rashedul Islam",
+        "role": "Multimedia Lead",
+        "img": "https://i.pravatar.cc/150?u=rashed",
+        "bio": "Leading video production and digital storytelling for the Inception brand."
+    },
+    {
+        "id": 15,
+        "name": "Fahim Shahriar",
+        "role": "Community Manager",
+        "img": "https://i.pravatar.cc/150?u=fahim",
+        "bio": "Building inclusive digital spaces for active student participation."
+    },
+    {
+        "id": 16,
+        "name": "Tahmina Khan",
+        "role": "Finance Officer",
+        "img": "https://i.pravatar.cc/150?u=tahmina",
+        "bio": "Managing fiscal sustainability and transparent resource allocation."
+    },
+    {
+        "id": 17,
+        "name": "Nazmus Sakib",
+        "role": "Cyber Security",
+        "img": "https://i.pravatar.cc/150?u=sakib",
+        "bio": "Safeguarding core assets against decryption attempts and data leaks."
+    },
+    {
+        "id": 18,
+        "name": "Lutfur Rahman",
+        "role": "Legal Consultant",
+        "img": "https://i.pravatar.cc/150?u=lutfur",
+        "bio": "Expert in institutional compliance and educational regulatory frameworks."
+    },
+    {
+        "id": 19,
+        "name": "Ishrat Jahan",
+        "role": "Communication Lead",
+        "img": "https://i.pravatar.cc/150?u=ishrat",
+        "bio": "Bridging internal communication gaps through agile dialogue systems."
+    },
+    {
+        "id": 20,
+        "name": "Shaon Talukdar",
+        "role": "Full Stack Dev",
+        "img": "https://i.pravatar.cc/150?u=shaon",
+        "bio": "Developing scalable platforms for high-traffic inquiry-based systems."
+    },
+    {
+        "id": 21,
+        "name": "Jannatul Ferdous",
+        "role": "Junior Analyst",
+        "img": "https://i.pravatar.cc/150?u=jannat",
+        "bio": "Providing data entry support and preliminary academic documentation."
+    },
+    {
+        "id": 22,
+        "name": "Sabbir Hossain",
+        "role": "Logistics Lead",
+        "img": "https://i.pravatar.cc/150?u=sabbir",
+        "bio": "Ensuring precision in equipment movement for field-level missions."
+    },
+    {
+        "id": 23,
+        "name": "Nusrat Jahan",
+        "role": "Head of Ops",
+        "img": "https://i.pravatar.cc/150?u=nusrat",
+        "bio": "Overseeing daily operational tasks and personnel management workflows."
+    },
+    {
+        "id": 24,
+        "name": "Asif Mahmud",
+        "role": "Web Designer",
+        "img": "https://i.pravatar.cc/150?u=asif",
+        "bio": "Crafting clean, futuristic UI/UX for the Inception web portal."
+    },
+    {
+        "id": 25,
+        "name": "Afroza Begum",
+        "role": "Senior Advisor",
+        "img": "https://i.pravatar.cc/150?u=afroza",
+        "bio": "Guiding the ethical and long-term roadmap of the organization."
+    }
+]

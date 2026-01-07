@@ -13,61 +13,62 @@ const Footer = () => {
     ];
 
     return (
-        // ১. কালার এখন Deep Navy Black (#020617) যা আপনার নতুন ব্যাকগ্রাউন্ডের সাথে পারফেক্ট ম্যাচ করবে
-        <footer className="relative z-10 w-full py-16 px-8 bg-[#020617]/90 backdrop-blur-2xl border-t border-white/5">
+        // py-16 থেকে কমিয়ে মোবাইলে py-8 করা হয়েছে (Height Half)
+        <footer className="relative z-10 w-full py-8 md:py-16 px-6 md:px-8 bg-[#020617]/90 backdrop-blur-2xl border-t border-white/5">
 
-            {/* টপ অ্যানিমেটেড গ্রাডিয়েন্ট বর্ডার লাইন (এখন Cyan/Blue Glow) */}
+            {/* টপ অ্যানিমেটেড লাইন */}
             <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#22d3ee] to-transparent shadow-[0_0_20px_rgba(34,211,238,0.5)]"></div>
 
             <div className="max-w-7xl mx-auto md:pl-28">
-                <div className="flex flex-col md:flex-row justify-between items-center gap-12">
+                <div className="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-12">
 
-                    {/* ব্র্যান্ড সেকশন */}
-                    <div className="flex flex-col sm:flex-row items-center gap-6 group cursor-default">
+                    {/* ব্র্যান্ড সেকশন - মোবাইলে লোগো এবং টেক্সট ছোট করা হয়েছে */}
+                    <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6 group cursor-default">
                         <div className="relative">
                             <img
                                 src={LogoImg}
                                 alt="Inception Logo"
-                                className="w-20 h-20 md:w-24 md:h-24 object-contain filter drop-shadow-[0_0_15px_rgba(34,211,238,0.4)] group-hover:scale-110 transition-transform duration-500"
+                                // মোবাইলে লোগো w-12 h-12 (ছোট) করা হয়েছে
+                                className="w-12 h-12 md:w-24 md:h-24 object-contain filter drop-shadow-[0_0_15px_rgba(34,211,238,0.4)] transition-transform duration-500"
                             />
-                            {/* লোগোর পেছনে ব্লু আভা */}
-                            <div className="absolute inset-0 bg-[#22d3ee]/10 blur-2xl rounded-full -z-10"></div>
+                            <div className="absolute inset-0 bg-[#22d3ee]/10 blur-xl rounded-full -z-10"></div>
                         </div>
 
                         <div className="flex flex-col items-center sm:items-start">
-                            <h2 className="text-4xl font-black tracking-tighter text-white">
+                            {/* মোবাইলে টেক্সট text-2xl করা হয়েছে */}
+                            <h2 className="text-2xl md:text-4xl font-black tracking-tighter text-white">
                                 INCEPTION<span className="text-[#22d3ee] drop-shadow-[0_0_10px_#22d3ee]">.</span>
                             </h2>
-                            <div className="h-0.5 w-full bg-gradient-to-r from-[#22d3ee] via-[#3b82f6]/50 to-transparent mt-1"></div>
-                            <p className="text-gray-400 text-[10px] uppercase tracking-[0.4em] mt-3 font-bold">
+                            <div className="h-0.5 w-full bg-gradient-to-r from-[#22d3ee] via-[#3b82f6]/50 to-transparent"></div>
+                            <p className="text-gray-400 text-[8px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.4em] mt-1.5 font-bold">
                                 Innovation Society
                             </p>
                         </div>
                     </div>
 
-                    {/* সোশ্যাল আইকনস - এখন ব্লু থিমে */}
-                    <div className="flex gap-6">
+                    {/* সোশ্যাল আইকনস - সাইজ ছোট করা হয়েছে */}
+                    <div className="flex gap-4 md:gap-6">
                         {socialLinks.map((social, index) => (
                             <motion.a
                                 key={index}
                                 href={social.link}
-                                whileHover={{ y: -5, scale: 1.1 }}
-                                className="relative w-12 h-12 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 text-gray-400 group overflow-hidden"
+                                whileHover={{ y: -3, scale: 1.05 }}
+                                // মোবাইলে w-10 h-10 করা হয়েছে
+                                className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-lg md:rounded-xl bg-white/5 border border-white/10 text-gray-400 group overflow-hidden"
                             >
-                                {/* হোভার করলে সাইয়ান গ্লাস ইফেক্ট */}
                                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-gradient-to-br from-[#22d3ee]/20 to-transparent"></div>
-                                <span className="relative z-10 text-xl group-hover:text-white group-hover:drop-shadow-[0_0_10px_#22d3ee]">
+                                <span className="relative z-10 text-lg md:text-xl group-hover:text-white group-hover:drop-shadow-[0_0_10px_#22d3ee]">
                                     {social.icon}
                                 </span>
                             </motion.a>
                         ))}
                     </div>
 
-                    {/* কপিরাইট ও লোকেশন */}
-                    <div className="flex flex-col items-center md:items-end gap-3 text-[10px] tracking-[0.2em] uppercase font-bold text-gray-500">
-                        <div className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
-                            <FaMapMarkerAlt className="text-[#22d3ee] text-xl shadow-blue-500" />
-                            <span className="text-[13px] font-medium tracking-wider">
+                    {/* কপিরাইট ও লোকেশন - ফন্ট সাইজ কমিয়ে কম্প্যাক্ট করা হয়েছে */}
+                    <div className="flex flex-col items-center md:items-end gap-1.5 text-[8px] md:text-[10px] tracking-[0.15em] md:tracking-[0.2em] uppercase font-bold text-gray-500">
+                        <div className="flex items-center gap-2 text-gray-400">
+                            <FaMapMarkerAlt className="text-[#22d3ee] text-base md:text-xl" />
+                            <span className="text-[11px] md:text-[13px] font-medium tracking-wider">
                                 Nabinagar, Brahmanbaria
                             </span>
                         </div>
@@ -76,8 +77,8 @@ const Footer = () => {
                 </div>
             </div>
 
-            {/* বটম শিমার লাইন */}
-            <div className="absolute bottom-0 left-0 w-full h-[1px] overflow-hidden opacity-30">
+            {/* শিমার লাইন */}
+            <div className="absolute bottom-0 left-0 w-full h-[1px] overflow-hidden opacity-20">
                 <div className="w-full h-full bg-gradient-to-r from-transparent via-[#22d3ee] to-transparent animate-shimmer"></div>
             </div>
 
