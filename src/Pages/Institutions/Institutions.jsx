@@ -1,30 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Institution from './Institutioin';
+import useAxios from '../../hooks/useAxios';
 
 const Institutions = () => {
-    const [allData, setAllData] = useState([]); // ডেটা স্টোর করার জন্য
+    const axiosSecure = useAxios();
+
+    const [allData, setAllData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [loading, setLoading] = useState(true); // লোডিং স্টেট
+    const [loading, setLoading] = useState(true);
 
     const itemsPerPage = 8;
 
-    // ১. JSON ফাইল থেকে ডেটা ফেচ করা
+    // 🔥 Backend থেকে data fetch
     useEffect(() => {
-        fetch('/institutions.json') // পাবলিক ফোল্ডার থেকে ফাইলটি রিড করবে
-            .then((response) => response.json())
-            .then((data) => {
-                setAllData(data);
+        axiosSecure.get('/institutions')
+            .then(res => {
+                setAllData(res.data);
                 setLoading(false);
             })
-            .catch((error) => {
+            .catch(error => {
                 console.error('Error fetching institutions:', error);
                 setLoading(false);
             });
-    }, []);
+    }, [axiosSecure]);
 
     const totalPages = Math.ceil(allData.length / itemsPerPage);
-    const currentItems = allData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+    const currentItems = allData.slice(
+        (currentPage - 1) * itemsPerPage,
+        currentPage * itemsPerPage
+    );
 
     if (loading) {
         return (
@@ -37,6 +42,7 @@ const Institutions = () => {
     return (
         <div className="min-h-screen bg-transparent py-24 pt-32">
             <div className="container mx-auto px-6">
+
                 {/* Header */}
                 <div className="mb-16 border-l-8 border-[#8a0001] pl-6">
                     <h2 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter">
@@ -47,12 +53,12 @@ const Institutions = () => {
                     </p>
                 </div>
 
-                {/* Grid Container */}
+                {/* Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <AnimatePresence mode='wait'>
+                    <AnimatePresence mode="wait">
                         {currentItems.map((item) => (
                             <motion.div
-                                key={item.id}
+                                key={item._id}   
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, scale: 0.95 }}
@@ -64,7 +70,7 @@ const Institutions = () => {
                     </AnimatePresence>
                 </div>
 
-                {/* Pagination (শুধু যদি ১ পেজের বেশি ডেটা থাকে) */}
+                {/* Pagination */}
                 {totalPages > 1 && (
                     <div className="mt-20 flex flex-wrap justify-center items-center gap-4">
                         {Array.from({ length: totalPages }).map((_, i) => (

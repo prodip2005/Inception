@@ -1,42 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
+import useAxios from '../hooks/useAxios';
 
 const Events = () => {
-    const eventData = [
-        {
-            title: "Annual Tech Meetup 2026",
-            date: "15 Jan, 2026",
-            location: "Main Auditorium",
-            description: "Join us for the biggest tech conference of the year focusing on future innovations."
-        },
-        {
-            title: "Inception Design Workshop",
-            date: "22 Jan, 2026",
-            location: "Room 402, IT Building",
-            description: "A hands-on session on modern UI/UX principles and design systems."
-        },
-        {
-            title: "Coding Championship",
-            date: "05 Feb, 2026",
-            location: "Online Contest",
-            description: "Compete with the best minds in a 12-hour coding marathon."
-        },
-        {
-            title: "Networking Dinner",
-            date: "10 Feb, 2026",
-            location: "Grand Palace",
-            description: "An evening to connect with industry leaders and alumni."
-        },
-    ];
+    const axiosSecure = useAxios();
+    const [eventData, setEventData] = useState([]);
+
+    useEffect(() => {
+        axiosSecure.get('/timeline')
+            .then(res => {
+                // 🔥 ensure only 4 events
+                setEventData(res.data.slice(0, 4));
+            })
+            .catch(console.error);
+    }, [axiosSecure]);
 
     return (
         <section id='events' className="py-24 relative px-6 overflow-hidden">
-            {/* Background Ambient Glow */}
             <div className="absolute top-1/2 left-0 w-72 h-72 bg-[#8a0001]/10 blur-[120px] rounded-full pointer-events-none"></div>
 
             <div className="max-w-5xl mx-auto">
-                {/* --- সেকশন টাইটেল (ফিক্সড ওভারল্যাপ) --- */}
                 <motion.div
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -59,38 +43,33 @@ const Events = () => {
                 </motion.div>
 
                 <div className="relative max-w-3xl ml-4 md:ml-20">
-                    {/* ১. ভার্টিক্যাল মেইন লাইন */}
                     <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-gradient-to-b from-[#8a0001] via-white/10 to-transparent"></div>
 
-                    {/* ইভেন্ট লিস্ট */}
                     <div className="space-y-16">
                         {eventData.map((event, index) => (
                             <motion.div
-                                key={index}
+                                key={event._id}
                                 initial={{ opacity: 0, x: 20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true, margin: "-100px" }}
                                 transition={{ duration: 0.7, delay: index * 0.1 }}
                                 className="relative pl-10 md:pl-16"
                             >
-                                {/* ২. কানেক্টর ডট ও এনিমেশন */}
                                 <div className="absolute left-[-4px] top-3 w-2 h-2 bg-[#8a0001] rounded-full">
                                     <div className="absolute inset-0 bg-[#8a0001] rounded-full animate-ping opacity-40"></div>
                                 </div>
 
-                                {/* ৩. গ্লাসি কার্ড (ট্রান্সপারেন্ট ও প্রফেশনাল) */}
                                 <motion.div
                                     whileHover={{ x: 10 }}
                                     className="p-8 bg-white/[0.01] backdrop-blur-2xl border border-white/5 border-l-2 border-l-[#8a0001] rounded-2xl relative group transition-all duration-500"
                                 >
-                                    {/* কার্ড হোভার গ্লো */}
                                     <div className="absolute inset-0 bg-gradient-to-br from-[#8a0001]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
 
                                     <div className="relative z-10">
                                         <div className="flex flex-wrap items-center gap-6 mb-4">
                                             <div className="flex items-center gap-2 text-[#8a0001] font-mono text-xs font-bold uppercase tracking-widest">
                                                 <FaCalendarAlt className="text-[10px]" />
-                                                {event.date}
+                                                {new Date(event.date).toDateString()}
                                             </div>
                                             <div className="flex items-center gap-2 text-white/30 font-mono text-[10px] uppercase tracking-widest">
                                                 <FaMapMarkerAlt />
@@ -98,16 +77,15 @@ const Events = () => {
                                             </div>
                                         </div>
 
-                                        <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-white transition-colors uppercase tracking-tight mb-3">
+                                        <h3 className="text-2xl md:text-3xl font-bold text-white uppercase tracking-tight mb-3">
                                             {event.title}
                                         </h3>
 
                                         <p className="text-gray-500 text-sm md:text-base leading-relaxed max-w-xl font-light">
-                                            {event.description}
+                                            {event.description?.slice(0, 100)}...
                                         </p>
                                     </div>
 
-                                    {/* ডেকোরেশন লাইন */}
                                     <div className="absolute top-4 right-6 text-white/[0.03] font-black text-4xl italic select-none pointer-events-none">
                                         0{index + 1}
                                     </div>

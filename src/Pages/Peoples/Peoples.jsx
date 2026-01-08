@@ -1,30 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import People from './People';
+import useAxios from '../../hooks/useAxios';
 
 const Peoples = () => {
+    const axiosSecure = useAxios();
+
     const [allPeoples, setAllPeoples] = useState([]);
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
 
     const itemsPerPage = 8;
 
+    // 🔥 Backend থেকে peoples data fetch
     useEffect(() => {
-        // public/peoples.json থেকে ডাটা ফেচ করা হচ্ছে
-        fetch('/peoples.json')
-            .then((res) => res.json())
-            .then((data) => {
-                setAllPeoples(data);
+        axiosSecure.get('/peoples')
+            .then(res => {
+                setAllPeoples(res.data);
                 setLoading(false);
             })
-            .catch((err) => {
+            .catch(err => {
                 console.error("Failed to load personnel data:", err);
                 setLoading(false);
             });
-    }, []);
+    }, [axiosSecure]);
 
     const totalPages = Math.ceil(allPeoples.length / itemsPerPage);
-    const currentItems = allPeoples.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+    const currentItems = allPeoples.slice(
+        (currentPage - 1) * itemsPerPage,
+        currentPage * itemsPerPage
+    );
 
     if (loading) {
         return (
@@ -48,18 +53,21 @@ const Peoples = () => {
                     </p>
                 </div>
 
-                {/* Grid Container */}
+                {/* Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                    <AnimatePresence mode='wait'>
+                    <AnimatePresence mode="wait">
                         <motion.div
                             key={currentPage}
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="contents" // grid layout বজায় রাখার জন্য
+                            className="contents"
                         >
                             {currentItems.map((person) => (
-                                <People key={person.id} person={person} />
+                                <People
+                                    key={person._id}   // 🔥 MongoDB _id
+                                    person={person}
+                                />
                             ))}
                         </motion.div>
                     </AnimatePresence>

@@ -1,123 +1,60 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Outlet } from 'react-router';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
 
 const Root = () => {
-    const [init, setInit] = useState(false);
-
-    useEffect(() => {
-        initParticlesEngine(async (engine) => {
-            await loadSlim(engine);
-        }).then(() => {
-            setInit(true);
-        });
-    }, []);
-
-    const particlesOptions = {
-        background: { color: { value: "transparent" } },
-        fpsLimit: 120,
-        interactivity: {
-            events: {
-                onHover: {
-                    enable: true,
-                    mode: "grab" // মাউস নিলে লাইনগুলো আরও উজ্জ্বল হয়ে কানেক্ট হবে
-                },
-                onClick: { enable: true, mode: "push" },
-            },
-            modes: {
-                grab: {
-                    distance: 180,
-                    links: { opacity: 0.8 } // মাউসের কাছে লাইনগুলো খুব উজ্জ্বল দেখাবে
-                },
-                push: { quantity: 4 },
-            },
-        },
-        particles: {
-            // সাইয়ান এবং ব্লু কালার কম্বিনেশন
-            color: { value: ["#22d3ee", "#3b82f6", "#ffffff"] },
-            links: {
-                enable: true,
-                color: "#22d3ee", // উজ্জ্বল সায়ান কালার লিন্ক
-                distance: 120,    // লাইনগুলোর দৈর্ঘ্য
-                opacity: 0.35,    // লাইনের স্পষ্টতা
-                width: 1.2,       // লাইনের পুরুত্ব
-            },
-            move: {
-                enable: true,
-                speed: 0.7,       // আপনার চাওয়া অনুযায়ী ধীর এবং স্মুথ গতি
-                direction: "none",
-                random: true,
-                straight: false,
-                outModes: { default: "bounce" } // স্ক্রিনের কোণায় ধাক্কা খেয়ে ফিরে আসবে
-            },
-            // ডেনসিটি বা ঘনত্ব বাড়ানোর জন্য ভ্যালু বাড়ানো হয়েছে
-            number: {
-                density: { enable: true, area: 700 },
-                value: 200
-            },
-            opacity: {
-                value: { min: 0.3, max: 0.7 },
-                animation: {
-                    enable: true,
-                    speed: 1,
-                    minimumValue: 0.1
-                }
-            },
-            shape: { type: "circle" },
-            size: { value: { min: 1, max: 3 } },
-        },
-        detectRetina: true,
-    };
-
     return (
-        <div className="min-h-screen flex flex-col relative bg-gradient-to-tl from-[#050505] via-[#020617] to-[#050505] text-white overflow-x-hidden">
+        <div className="min-h-screen flex flex-col relative text-white selection:bg-blue-500/30">
 
-            {/* ১. ব্রাইট ব্লু গ্লো ইফেক্টস - রিভার্স করা হয়েছে (বাম দিক থেকে শুরু) */}
-            <div className="fixed inset-0 z-0 pointer-events-none">
-                {/* টপ-লেফট বড় ব্লু গ্লো (আগে রাইটে ছিল) */}
-                <div className="absolute top-[-15%] left-[-10%] w-[80%] h-[70%] bg-blue-600/20 blur-[150px] rounded-full opacity-60"></div>
+            {/* --- ১. সলিড লিনিয়ার গ্রাডিয়েন্ট ব্যাকগ্রাউন্ড --- */}
+            <div className="fixed inset-0 z-0 pointer-events-none 
+                bg-gradient-to-br from-[#0a0f1e] via-[#020617] to-[#0d0202]">
 
-                {/* মিড-রাইট আভা (ভারসাম্য বজায় রাখার জন্য) */}
-                <div className="absolute top-[20%] right-[-10%] w-[40%] h-[50%] bg-indigo-600/10 blur-[130px] rounded-full"></div>
-
-                {/* বটম-লেফট আভা */}
-                <div className="absolute bottom-[-10%] left-[-5%] w-[50%] h-[50%] bg-blue-500/15 blur-[120px] rounded-full opacity-40"></div>
+                {/* একটু ডেপথ বাড়ানোর জন্য একটি রেডিয়াল স্পট লাইট */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(29,78,216,0.15),transparent_50%)]"></div>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(138,0,1,0.08),transparent_50%)]"></div>
             </div>
 
-            {init && <Particles id="tsparticles" options={particlesOptions} className="absolute inset-0 z-1" />}
-
+            {/* --- ২. নেভিগেশন বার --- */}
             <Navbar />
 
-            <main className="relative z-10 flex-grow w-full pt-20 md:pt-0">
-                <div className="max-w-6xl mx-auto px-6">
+            {/* --- ৩. মেইন কন্টেন্ট এরিয়া --- */}
+            <main className="relative z-10 flex-grow w-full pt-24 md:pt-28">
+                <div className="max-w-7xl mx-auto px-4 md:px-8">
                     <Outlet />
                 </div>
             </main>
 
-            <footer className="relative z-10 w-full bg-black/40 backdrop-blur-md border-t border-white/5">
-                <div className="w-full">
-                    <Footer />
-                </div>
+            {/* --- ৪. ফুটার --- */}
+            <footer className="relative z-10 w-full mt-20 bg-black/40 backdrop-blur-xl border-t border-white/5">
+                <Footer />
             </footer>
 
+            {/* --- ৫. গ্লোবাল কাস্টম স্টাইলস --- */}
             <style dangerouslySetInnerHTML={{
                 __html: `
-                ::-webkit-scrollbar { width: 4px; }
+                /* স্ক্রোলবার ডিজাইন */
+                ::-webkit-scrollbar { width: 5px; }
                 ::-webkit-scrollbar-track { background: #020617; }
-                ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 10px; }
+                ::-webkit-scrollbar-thumb { 
+                    background: #1e3a8a; 
+                    border-radius: 10px; 
+                }
                 
-                ::selection {
-                    background: #3b82f6;
-                    color: white;
+                body {
+                    margin: 0;
+                    padding: 0;
+                    background-color: #020617; /* Fallback */
                 }
 
-                main { animation: fadeIn 1.2s ease-out forwards; }
+                /* কন্টেন্ট লোডিং অ্যানিমেশন */
+                main { 
+                    animation: fadeIn 0.5s ease-in-out forwards; 
+                }
                 @keyframes fadeIn {
-                    from { opacity: 0; transform: translateY(10px); }
-                    to { opacity: 1; transform: translateY(0); }
+                    from { opacity: 0; }
+                    to { opacity: 1; }
                 }
             `}} />
         </div>

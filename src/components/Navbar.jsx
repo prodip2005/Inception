@@ -20,7 +20,7 @@ const Navbar = () => {
     return (
         <>
             {/* --- ১. ল্যাপটপ ন্যাভবার --- */}
-            <div className="fixed left-6 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center gap-6">
+            <div className="fixed left-6 top-2/5 -translate-y-1/2 z-50 hidden md:flex flex-col items-center gap-6">
                 <nav className="flex flex-col items-center gap-4 p-4 bg-white/[0.01] backdrop-blur-md border border-white/5 rounded-full hover:border-[#3b82f6]/30 transition-all duration-500 group/nav">
                     <Link to="/" className="w-16 h-16 flex items-center justify-center bg-white/[0.02] rounded-full mb-2 border border-white/5 transition-all hover:border-[#22d3ee]/40">
                         <img src={LogoImg} alt="Logo" className="w-12 h-12 object-contain" />

@@ -32,7 +32,7 @@ const Contact = () => {
                     {/* --- Left Column: Typography & Info --- */}
                     <div className="lg:col-span-5 flex flex-col justify-center">
                         <motion.div variants={itemVariants} className="mb-12">
-                            <h2 className="text-6xl md:text-[92px] font-black text-white leading-none tracking-tighter uppercase">
+                            <h2 className="text-6xl md:text-[89px] font-black text-white leading-none tracking-tighter uppercase">
                                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#8a0001] via-red-500 to-white">
                                     Partner
                                 </span> <br />
