@@ -35,7 +35,7 @@ const AddInstitutions = () => {
     };
 
     // কমান্ড সেন্টার স্টাইল ইনপুট ডিজাইন
-    const inputStyle = "w-full bg-white/[0.02] border border-white/10 p-4 rounded-2xl outline-none text-white focus:border-[#8a0001] focus:bg-white/[0.05] transition-all placeholder:text-slate-600 font-mono text-sm";
+    const inputStyle = "w-full bg-white/[0.02] border border-white/10 p-4 rounded-2xl outline-none text-white focus:border-[#d22f27] focus:bg-white/[0.05] transition-all placeholder:text-slate-600 font-mono text-sm";
 
     return (
         <motion.div
@@ -47,12 +47,12 @@ const AddInstitutions = () => {
 
                 {/* Background Decoration Icon */}
                 <div className="absolute -top-10 -right-10 opacity-5 pointer-events-none">
-                    <FaUniversity size={250} className="text-[#8a0001]" />
+                    <FaUniversity size={250} className="text-[#d22f27]" />
                 </div>
 
                 <div className="mb-10 relative z-10">
                     <h2 className="text-3xl font-black text-white uppercase tracking-tighter italic flex items-center gap-3">
-                        <FaUniversity className="text-[#8a0001]" /> Link_Institution
+                        <FaUniversity className="text-[#d22f27]" /> Link_Institution
                     </h2>
                     <p className="text-slate-500 font-mono text-[10px] uppercase tracking-[0.2em] mt-2">
                         // Status: Secure_Entry // Node: Academic_Database
@@ -72,7 +72,7 @@ const AddInstitutions = () => {
                     {/* Image URL */}
                     <div className="space-y-2">
                         <label className="text-[10px] font-mono text-slate-500 uppercase tracking-widest ml-2 flex items-center gap-2">
-                            <FaImage size={10} className="text-[#8a0001]" /> Resource_Image_URL
+                            <FaImage size={10} className="text-[#d22f27]" /> Resource_Image_URL
                         </label>
                         <input name="img" placeholder="HTTPS://IMAGE-HOST.COM/LOGO.PNG" required className={inputStyle} />
                     </div>
@@ -80,7 +80,7 @@ const AddInstitutions = () => {
                     {/* Affiliation Date */}
                     <div className="space-y-2">
                         <label className="text-[10px] font-mono text-slate-500 uppercase tracking-widest ml-2 flex items-center gap-2">
-                            <FaCalendarAlt size={10} className="text-[#8a0001]" /> Connection_Date
+                            <FaCalendarAlt size={10} className="text-[#d22f27]" /> Connection_Date
                         </label>
                         <input type="date" name="date" required className={inputStyle} />
                     </div>
@@ -88,7 +88,7 @@ const AddInstitutions = () => {
                     {/* Location */}
                     <div className="md:col-span-2 space-y-2">
                         <label className="text-[10px] font-mono text-slate-500 uppercase tracking-widest ml-2 flex items-center gap-2">
-                            <FaMapMarkerAlt size={10} className="text-[#8a0001]" /> Physical_Coordinates (Location)
+                            <FaMapMarkerAlt size={10} className="text-[#d22f27]" /> Physical_Coordinates (Location)
                         </label>
                         <input name="location" placeholder="E.G. NEW YORK, USA / SECTOR 7" required className={inputStyle} />
                     </div>
@@ -110,7 +110,7 @@ const AddInstitutions = () => {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="w-full bg-[#8a0001] hover:bg-[#a00001] text-white py-5 rounded-2xl font-black uppercase tracking-[0.3em] text-xs transition-all shadow-[0_10px_30px_rgba(138,0,1,0.2)] disabled:opacity-50 flex items-center justify-center gap-3 group"
+                            className="w-full bg-[#d22f27] hover:bg-[#a00001] text-white py-5 rounded-2xl font-black uppercase tracking-[0.3em] text-xs transition-all shadow-[0_10px_30px_rgba(138,0,1,0.2)] disabled:opacity-50 flex items-center justify-center gap-3 group"
                         >
                             {loading ? (
                                 <span className="animate-pulse">INITIALIZING_UPLOADER...</span>

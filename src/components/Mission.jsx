@@ -53,13 +53,13 @@ const Mission = () => {
 
                             {/* ডেকোরেটিভ গ্লিচ লাইনস */}
                             <div className="absolute top-[40%] left-0 w-1/2 h-[0.5px] bg-white/5 md:block hidden"></div>
-                            <div className="absolute top-[55%] left-0 w-full h-[1px] bg-[#8a0001]/10"></div>
+                            <div className="absolute top-[55%] left-0 w-full h-[1px] bg-[#d22f27]/10"></div>
                         </div>
 
                         {/* --- মেইন টাইটেল (MISSION) --- */}
-                        <div className="relative  z-10 pl-3 md:pl-6 border-l-[3px] md:border-l-[6px] border-[#8a0001]">
+                        <div className="relative  z-10 pl-3 md:pl-6 border-l-[3px] md:border-l-[6px] border-[#d22f27]">
                             <span className="block text-[8px] md:text-xl font-mono text-slate-500 tracking-[0.3em] mb-1">The_Commitments</span>
-                            <h2 className="text-3xl mt-9 md:text-8xl font-black uppercase tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-[#8a0001] via-red-500 to-white leading-none">
+                            <h2 className="text-3xl mt-9 md:text-8xl font-black uppercase tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-[#d22f27] via-red-500 to-white leading-none">
                                 MISSION<span className="text-white opacity-50">_</span>
                             </h2>
                         </div>
@@ -75,12 +75,12 @@ const Mission = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.1 }}
                             whileHover={{ y: -5 }}
-                            className="group relative p-3 md:p-8 bg-gradient-to-br from-white/[0.03] to-transparent border border-white/5 rounded-xl md:rounded-[2rem] overflow-hidden transition-all duration-500 hover:border-[#8a0001]/30"
+                            className="group relative p-3 md:p-8 bg-gradient-to-br from-white/[0.03] to-transparent border border-white/5 rounded-xl md:rounded-[2rem] overflow-hidden transition-all duration-500 hover:border-[#d22f27]/30"
                         >
                             <div className="absolute top-0 right-0 p-1.5 md:p-4 font-mono text-[6px] md:text-[10px] text-white/5 uppercase">#{item.id}</div>
 
-                            <div className="w-8 h-8 md:w-14 md:h-14 bg-[#8a0001]/10 rounded-lg md:rounded-2xl flex items-center justify-center mb-3 md:mb-8 border border-[#8a0001]/20 group-hover:bg-[#8a0001] transition-all duration-500">
-                                <span className="text-[#8a0001] group-hover:text-white text-sm md:text-2xl">{item.icon}</span>
+                            <div className="w-8 h-8 md:w-14 md:h-14 bg-[#d22f27]/10 rounded-lg md:rounded-2xl flex items-center justify-center mb-3 md:mb-8 border border-[#d22f27]/20 group-hover:bg-[#d22f27] transition-all duration-500">
+                                <span className="text-[#d22f27] group-hover:text-white text-sm md:text-2xl">{item.icon}</span>
                             </div>
 
                             <h3 className="text-[10px] md:text-2xl font-bold text-white mb-1 md:mb-4 leading-tight">{item.title}</h3>
@@ -89,7 +89,7 @@ const Mission = () => {
                                 {item.desc}
                             </p>
 
-                            <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-[#8a0001]/5 rounded-full blur-md group-hover:bg-[#8a0001]/20 transition-all"></div>
+                            <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-[#d22f27]/5 rounded-full blur-md group-hover:bg-[#d22f27]/20 transition-all"></div>
                         </motion.div>
                     ))}
                 </div>

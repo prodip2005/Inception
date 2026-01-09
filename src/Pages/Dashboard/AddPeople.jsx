@@ -35,7 +35,7 @@ const AddPeople = () => {
     };
 
     // ইউনিফর্ম ইনপুট স্টাইল
-    const inputStyle = "w-full bg-white/[0.02] border border-white/10 p-4 rounded-2xl outline-none text-white focus:border-[#8a0001] focus:bg-white/[0.05] transition-all placeholder:text-slate-600 font-mono text-sm";
+    const inputStyle = "w-full bg-white/[0.02] border border-white/10 p-4 rounded-2xl outline-none text-white focus:border-[#d22f27] focus:bg-white/[0.05] transition-all placeholder:text-slate-600 font-mono text-sm";
 
     return (
         <motion.div
@@ -47,12 +47,12 @@ const AddPeople = () => {
 
                 {/* Background Decoration */}
                 <div className="absolute -top-12 -right-12 opacity-5 pointer-events-none">
-                    <FaFingerprint size={280} className="text-[#8a0001]" />
+                    <FaFingerprint size={280} className="text-[#d22f27]" />
                 </div>
 
                 <div className="mb-10 relative z-10">
                     <h2 className="text-3xl font-black text-white uppercase tracking-tighter italic flex items-center gap-3">
-                        <FaUserPlus className="text-[#8a0001]" /> Register_Personnel
+                        <FaUserPlus className="text-[#d22f27]" /> Register_Personnel
                     </h2>
                     <p className="text-slate-500 font-mono text-[10px] uppercase tracking-[0.2em] mt-2">
                         // Protocol: Personnel_Entry // Access_Level: Root_Admin
@@ -72,7 +72,7 @@ const AddPeople = () => {
                     {/* Role / Designation */}
                     <div className="space-y-2">
                         <label className="text-[10px] font-mono text-slate-500 uppercase tracking-widest ml-2 flex items-center gap-2">
-                            <FaUserTie size={10} className="text-[#8a0001]" /> Designation_Role
+                            <FaUserTie size={10} className="text-[#d22f27]" /> Designation_Role
                         </label>
                         <input name="role" placeholder="E.G. EXECUTIVE LEAD / RESEARCHER" required className={inputStyle} />
                     </div>
@@ -80,7 +80,7 @@ const AddPeople = () => {
                     {/* Profile Image URL */}
                     <div className="space-y-2">
                         <label className="text-[10px] font-mono text-slate-500 uppercase tracking-widest ml-2 flex items-center gap-2">
-                            <FaImage size={10} className="text-[#8a0001]" /> Avatar_Source_URL
+                            <FaImage size={10} className="text-[#d22f27]" /> Avatar_Source_URL
                         </label>
                         <input name="img" placeholder="https://server.com/avater.png" className={inputStyle} />
                     </div>
@@ -102,7 +102,7 @@ const AddPeople = () => {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="w-full bg-[#8a0001] hover:bg-[#a00001] text-white py-5 rounded-2xl font-black uppercase tracking-[0.3em] text-xs transition-all shadow-[0_10px_30px_rgba(138,0,1,0.2)] disabled:opacity-50 flex items-center justify-center gap-3 group"
+                            className="w-full bg-[#d22f27] hover:bg-[#a00001] text-white py-5 rounded-2xl font-black uppercase tracking-[0.3em] text-xs transition-all shadow-[0_10px_30px_rgba(138,0,1,0.2)] disabled:opacity-50 flex items-center justify-center gap-3 group"
                         >
                             {loading ? (
                                 <span className="animate-pulse italic italic">Transmitting_Data...</span>
@@ -119,8 +119,8 @@ const AddPeople = () => {
                 <div className="mt-10 flex justify-between items-center px-4 border-t border-white/5 pt-6">
                     <span className="text-[8px] font-mono text-slate-600 uppercase tracking-[0.4em]">Inception_Security_Protocol_Active</span>
                     <div className="flex gap-1.5">
-                        <div className="w-1 h-1 bg-[#8a0001] rounded-full"></div>
-                        <div className="w-1 h-1 bg-[#8a0001] rounded-full animate-ping"></div>
+                        <div className="w-1 h-1 bg-[#d22f27] rounded-full"></div>
+                        <div className="w-1 h-1 bg-[#d22f27] rounded-full animate-ping"></div>
                     </div>
                 </div>
             </div>

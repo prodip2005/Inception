@@ -3,7 +3,7 @@
 # 🚀 INCEPTION PROTOCOL
 ### *The Neural Network for Future Innovators*
 
-[![Version](https://img.shields.io/badge/Version-1.0.0-8a0001?style=for-the-badge&logo=target)](https://github.com/)
+[![Version](https://img.shields.io/badge/Version-1.0.0-d22f27?style=for-the-badge&logo=target)](https://github.com/)
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
 [![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Framer](https://img.shields.io/badge/Framer_Motion-black?style=for-the-badge&logo=framer&logoColor=blue)](https://framer.com/motion)
@@ -20,7 +20,7 @@
 
 The interface is built on a custom design language that emphasizes transparency, depth, and fluid motion.
 
-* 🔴 **Signature Gradient:** A premium transition from `Deep Crimson (#8a0001)` → `Vibrant Red` → `Pure White`.
+* 🔴 **Signature Gradient:** A premium transition from `Deep Crimson (#d22f27)` → `Vibrant Red` → `Pure White`.
 * 💎 **Hyper-Glassmorphism:** High-intensity `backdrop-blur` (up to 40px) mixed with ultra-low opacity surfaces (1-3%).
 * ⚡ **Fluid Dynamics:** Custom Bezier transitions (`[0.22, 1, 0.36, 1]`) ensuring every interaction feels liquid.
 * 🖥️ **Tech-Noir Aesthetic:** Terminal-style monospaced fonts combined with pulsating live status indicators.

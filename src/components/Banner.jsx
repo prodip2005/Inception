@@ -14,7 +14,7 @@ const Banner = () => {
         <section id='home' className="relative min-h-screen flex flex-col justify-center py-10 md:py-20">
 
             {/* Background Decoration (Ambient Light) */}
-            <div className="absolute top-[15%] right-[-10%] w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-[#8a0001]/10 blur-[100px] md:blur-[150px] rounded-full pointer-events-none"></div>
+            <div className="absolute top-[15%] right-[-10%] w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-[#d22f27]/10 blur-[100px] md:blur-[150px] rounded-full pointer-events-none"></div>
             <div className="absolute bottom-[-5%] left-[-10%] w-[250px] md:w-[400px] h-[250px] md:h-[400px] bg-blue-600/5 blur-[100px] md:blur-[120px] rounded-full pointer-events-none"></div>
 
             <div className="container mx-auto max-w-6xl px-6 relative z-10">
@@ -26,8 +26,8 @@ const Banner = () => {
                     transition={{ duration: 0.6 }}
                     className="flex items-center gap-3 mb-6 md:mb-8"
                 >
-                    <span className="w-8 md:w-12 h-[1px] bg-[#8a0001]"></span>
-                    <span className="text-[#8a0001] uppercase tracking-[0.2em] md:tracking-[0.4em] text-[8px] md:text-[10px] font-bold">
+                    <span className="w-8 md:w-12 h-[1px] bg-[#d22f27]"></span>
+                    <span className="text-[#d22f27] uppercase tracking-[0.2em] md:tracking-[0.4em] text-[8px] md:text-[10px] font-bold">
                         Est. 2024 • Academic Excellence
                     </span>
                 </motion.div>
@@ -42,7 +42,7 @@ const Banner = () => {
                         transition={{ duration: 0.8 }}
                     >
                         {/* ফোনের জন্য text-7xl এবং leading-[0.8] করা হয়েছে যাতে বড় দেখায় */}
-                        <h1 className="text-6xl sm:text-6xl md:text-9xl lg:text-[140px] font-black bg-clip-text text-transparent bg-gradient-to-r from-[#8a0001] via-red-500 to-white leading-[0.8] sm:leading-[0.9] md:leading-[0.85] tracking-tighter uppercase mb-4">
+                        <h1 className="text-6xl sm:text-6xl md:text-9xl lg:text-[140px] font-black bg-clip-text text-transparent bg-gradient-to-r from-[#d22f27] via-red-500 to-white leading-[0.8] sm:leading-[0.9] md:leading-[0.85] tracking-tighter uppercase mb-4">
                             INCEPTION
                         </h1>
                         <h2 className="text-xl sm:text-2xl md:text-6xl font-bold text-white/90 tracking-tight max-w-4xl">
@@ -56,7 +56,7 @@ const Banner = () => {
                     initial={{ width: 0, opacity: 0 }}
                     animate={{ width: '100%', opacity: 1 }}
                     transition={{ duration: 1.5, delay: 0.5 }}
-                    className="h-[1px] bg-gradient-to-r from-[#8a0001] via-[#8a0001]/50 to-transparent my-8 md:my-12"
+                    className="h-[1px] bg-gradient-to-r from-[#d22f27] via-[#d22f27]/50 to-transparent my-8 md:my-12"
                 />
 
                 {/* 4. Content Grid */}
@@ -75,10 +75,10 @@ const Banner = () => {
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center">
-                            <MinimalMissionButton/>
+                            <MinimalMissionButton />
 
                             <div className="flex items-center gap-3 text-white/60 border-l-0 sm:border-l border-white/10 pl-0 sm:pl-6 h-auto sm:h-10">
-                                <FaMapMarkerAlt className="text-[#8a0001]" />
+                                <FaMapMarkerAlt className="text-[#d22f27]" />
                                 <span className="text-[10px] md:text-[11px] font-bold uppercase tracking-widest">Nabinagar, Brahmanbaria</span>
                             </div>
                         </div>
@@ -97,9 +97,9 @@ const Banner = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 1 + (idx * 0.1) }}
                                 whileHover={{ y: -5 }}
-                                className="p-6 bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-2xl group hover:border-[#8a0001]/50 transition-all duration-300"
+                                className="p-6 bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-2xl group hover:border-[#d22f27]/50 transition-all duration-300"
                             >
-                                <div className="text-[#8a0001] text-xl mb-4 group-hover:scale-110 transition-transform">
+                                <div className="text-[#d22f27] text-xl mb-4 group-hover:scale-110 transition-transform">
                                     {item.icon}
                                 </div>
                                 <h4 className="text-white font-bold text-sm uppercase mb-1 tracking-wider">{item.title}</h4>
@@ -116,7 +116,7 @@ const Banner = () => {
                 transition={{ duration: 2, repeat: Infinity }}
                 className="absolute bottom-6 left-1/2 -translate-x-1/2 opacity-20 hidden lg:block"
             >
-                <div className="w-[1px] h-12 md:h-16 bg-gradient-to-b from-[#8a0001] to-transparent mx-auto"></div>
+                <div className="w-[1px] h-12 md:h-16 bg-gradient-to-b from-[#d22f27] to-transparent mx-auto"></div>
             </motion.div>
 
         </section>

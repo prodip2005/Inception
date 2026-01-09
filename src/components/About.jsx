@@ -26,15 +26,15 @@ const About = () => {
                     >
                         <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/10 rounded-full mb-8 backdrop-blur-md">
                             <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#8a0001] opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#8a0001]"></span>
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#d22f27] opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#d22f27]"></span>
                             </span>
                             <span className="text-white/70 font-mono text-[10px] tracking-[0.3em] uppercase">System_Overview</span>
                         </div>
 
                         <h2 className="text-6xl md:text-8xl font-black text-white uppercase tracking-tighter mb-8 leading-[0.9]">
                             INCEPTION<br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8a0001] via-red-500 to-white">PROTOCOLS</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d22f27] via-red-500 to-white">PROTOCOLS</span>
                         </h2>
 
                         <p className="text-slate-400 text-lg leading-relaxed mb-10 max-w-xl font-light">
@@ -45,7 +45,7 @@ const About = () => {
                         <div className="grid grid-cols-3 gap-6 py-8 border-y border-white/10">
                             {stats.map((stat, idx) => (
                                 <div key={idx} className="relative group">
-                                    <div className="text-[#8a0001] mb-2 text-sm opacity-70 group-hover:opacity-100 transition-opacity">
+                                    <div className="text-[#d22f27] mb-2 text-sm opacity-70 group-hover:opacity-100 transition-opacity">
                                         {stat.icon}
                                     </div>
                                     <h4 className="text-3xl font-bold text-white tracking-tighter">{stat.value}</h4>
@@ -69,7 +69,7 @@ const About = () => {
                             <div className="space-y-12">
                                 <div className="flex gap-8 group/item">
                                     <div className="relative flex-shrink-0">
-                                        <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#8a0001] transition-all duration-500 group-hover/item:bg-[#8a0001] group-hover/item:text-white">
+                                        <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#d22f27] transition-all duration-500 group-hover/item:bg-[#d22f27] group-hover/item:text-white">
                                             <FaBullseye className="text-xl" />
                                         </div>
                                     </div>
@@ -81,7 +81,7 @@ const About = () => {
 
                                 <div className="flex gap-8 group/item">
                                     <div className="relative flex-shrink-0">
-                                        <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#8a0001] transition-all duration-500 group-hover/item:bg-[#8a0001] group-hover/item:text-white">
+                                        <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#d22f27] transition-all duration-500 group-hover/item:bg-[#d22f27] group-hover/item:text-white">
                                             <FaFingerprint className="text-xl" />
                                         </div>
                                     </div>
@@ -104,9 +104,9 @@ const About = () => {
                         {/* Background Floating Rings - Transparent Style */}
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] border border-white/5 rounded-full -z-10 animate-[spin_20s_linear_infinite]"></div>
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[130%] h-[130%] border border-white/[0.02] rounded-full -z-10 animate-[spin_30s_linear_infinite_reverse]"></div>
-                </motion.div>
+                    </motion.div>
+                </div>
             </div>
-        </div>
         </section >
     );
 };

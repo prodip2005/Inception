@@ -19,7 +19,7 @@ const Contact = () => {
     return (
         <section id="contact" className="py-32 relative bg-transparent overflow-hidden">
             {/* Dynamic Background Glows */}
-            <div className="absolute top-0 left-[-10%] w-[500px] h-[500px] bg-[#8a0001]/10 blur-[120px] rounded-full pointer-events-none animate-pulse"></div>
+            <div className="absolute top-0 left-[-10%] w-[500px] h-[500px] bg-[#d22f27]/10 blur-[120px] rounded-full pointer-events-none animate-pulse"></div>
 
             <div className="container mx-auto max-w-7xl px-6 relative z-10">
                 <motion.div
@@ -33,12 +33,12 @@ const Contact = () => {
                     <div className="lg:col-span-5 flex flex-col justify-center">
                         <motion.div variants={itemVariants} className="mb-12">
                             <h2 className="text-6xl md:text-[89px] font-black text-white leading-none tracking-tighter uppercase">
-                                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#8a0001] via-red-500 to-white">
+                                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#d22f27] via-red-500 to-white">
                                     Partner
                                 </span> <br />
                                 with us_
                             </h2>
-                           
+
                         </motion.div>
 
                         <motion.div variants={itemVariants} className="space-y-6">
@@ -48,12 +48,12 @@ const Contact = () => {
                                 { icon: <FaMapMarkerAlt />, text: "Nabinagar,Brahmanbaria", label: "Visit Us" }
                             ].map((item, i) => (
                                 <div key={i} className="flex items-center gap-5 group cursor-pointer">
-                                    <div className="w-12 h-12 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-[#8a0001] group-hover:bg-[#8a0001] group-hover:text-white transition-all duration-500 backdrop-blur-md">
+                                    <div className="w-12 h-12 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-[#d22f27] group-hover:bg-[#d22f27] group-hover:text-white transition-all duration-500 backdrop-blur-md">
                                         {item.icon}
                                     </div>
                                     <div>
                                         <p className="text-[15px] text-slate-500 uppercase tracking-[0.2em] font-black">{item.label}</p>
-                                        <p className="text-white font-medium group-hover:text-[#8a0001] transition-colors">{item.text}</p>
+                                        <p className="text-white font-medium group-hover:text-[#d22f27] transition-colors">{item.text}</p>
                                     </div>
                                 </div>
                             ))}
@@ -63,49 +63,49 @@ const Contact = () => {
                     {/* --- Right Column: The Glass Form --- */}
                     <motion.div variants={itemVariants} className="lg:col-span-7">
                         <div className="relative p-8 md:p-12 bg-white/[0.01] backdrop-blur-[30px] border border-white/[0.08] rounded-[3rem] shadow-2xl">
-                            
+
                             {/* Subtitle inside form */}
                             <div className="mb-10">
                                 <h3 className="text-white font-bold text-xl uppercase tracking-widest">Contact with us</h3>
-                                <div className="h-[2px] w-12 bg-[#8a0001] mt-2"></div>
+                                <div className="h-[2px] w-12 bg-[#d22f27] mt-2"></div>
                             </div>
 
                             <form className="space-y-10">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                                     {/* Input Field: Glass Style */}
                                     <div className="relative group/field">
-                                        <input 
-                                            type="text" 
-                                            required 
-                                            className="peer w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-white outline-none focus:border-[#8a0001]/50 focus:bg-white/[0.07] backdrop-blur-md transition-all placeholder-transparent" 
-                                            placeholder="Full Name" 
+                                        <input
+                                            type="text"
+                                            required
+                                            className="peer w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-white outline-none focus:border-[#d22f27]/50 focus:bg-white/[0.07] backdrop-blur-md transition-all placeholder-transparent"
+                                            placeholder="Full Name"
                                         />
-                                        <label className="absolute left-6 top-4 text-slate-500 text-sm transition-all peer-focus:-top-7 peer-focus:left-2 peer-focus:text-[#8a0001] peer-focus:text-xs peer-[:not(:placeholder-shown)]:-top-7 peer-[:not(:placeholder-shown)]:left-2 peer-[:not(:placeholder-shown)]:text-xs">
+                                        <label className="absolute left-6 top-4 text-slate-500 text-sm transition-all peer-focus:-top-7 peer-focus:left-2 peer-focus:text-[#d22f27] peer-focus:text-xs peer-[:not(:placeholder-shown)]:-top-7 peer-[:not(:placeholder-shown)]:left-2 peer-[:not(:placeholder-shown)]:text-xs">
                                             NICK NAME
                                         </label>
                                     </div>
 
                                     <div className="relative group/field">
-                                        <input 
-                                            type="email" 
-                                            required 
-                                            className="peer w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-white outline-none focus:border-[#8a0001]/50 focus:bg-white/[0.07] backdrop-blur-md transition-all placeholder-transparent" 
-                                            placeholder="Email Address" 
+                                        <input
+                                            type="email"
+                                            required
+                                            className="peer w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-white outline-none focus:border-[#d22f27]/50 focus:bg-white/[0.07] backdrop-blur-md transition-all placeholder-transparent"
+                                            placeholder="Email Address"
                                         />
-                                        <label className="absolute left-6 top-4 text-slate-500 text-sm transition-all peer-focus:-top-7 peer-focus:left-2 peer-focus:text-[#8a0001] peer-focus:text-xs peer-[:not(:placeholder-shown)]:-top-7 peer-[:not(:placeholder-shown)]:left-2 peer-[:not(:placeholder-shown)]:text-xs">
+                                        <label className="absolute left-6 top-4 text-slate-500 text-sm transition-all peer-focus:-top-7 peer-focus:left-2 peer-focus:text-[#d22f27] peer-focus:text-xs peer-[:not(:placeholder-shown)]:-top-7 peer-[:not(:placeholder-shown)]:left-2 peer-[:not(:placeholder-shown)]:text-xs">
                                             EMAIL ADDRESS
                                         </label>
                                     </div>
                                 </div>
 
                                 <div className="relative group/field">
-                                    <textarea 
-                                        required 
-                                        rows="4" 
-                                        className="peer w-full bg-white/[0.03] border border-white/10 rounded-3xl px-6 py-4 text-white outline-none focus:border-[#8a0001]/50 focus:bg-white/[0.07] backdrop-blur-md transition-all resize-none placeholder-transparent" 
+                                    <textarea
+                                        required
+                                        rows="4"
+                                        className="peer w-full bg-white/[0.03] border border-white/10 rounded-3xl px-6 py-4 text-white outline-none focus:border-[#d22f27]/50 focus:bg-white/[0.07] backdrop-blur-md transition-all resize-none placeholder-transparent"
                                         placeholder="Message"
                                     ></textarea>
-                                    <label className="absolute left-6 top-4 text-slate-500 text-sm transition-all peer-focus:-top-7 peer-focus:left-2 peer-focus:text-[#8a0001] peer-focus:text-xs peer-[:not(:placeholder-shown)]:-top-7 peer-[:not(:placeholder-shown)]:left-2 peer-[:not(:placeholder-shown)]:text-xs">
+                                    <label className="absolute left-6 top-4 text-slate-500 text-sm transition-all peer-focus:-top-7 peer-focus:left-2 peer-focus:text-[#d22f27] peer-focus:text-xs peer-[:not(:placeholder-shown)]:-top-7 peer-[:not(:placeholder-shown)]:left-2 peer-[:not(:placeholder-shown)]:text-xs">
                                         YOUR MESSAGE
                                     </label>
                                 </div>
@@ -115,7 +115,7 @@ const Contact = () => {
                                     whileTap={{ scale: 0.98 }}
                                     className="w-full relative py-5 rounded-2xl overflow-hidden group/btn"
                                 >
-                                    <div className="absolute inset-0 bg-gradient-to-r from-[#8a0001] to-red-600 transition-all duration-500 group-hover/btn:scale-105"></div>
+                                    <div className="absolute inset-0 bg-gradient-to-r from-[#d22f27] to-red-600 transition-all duration-500 group-hover/btn:scale-105"></div>
                                     <div className="relative flex items-center justify-center gap-3 text-white font-bold uppercase tracking-[0.4em] text-[10px]">
                                         Send Message <FaPaperPlane className="group-hover/btn:translate-x-2 group-hover/btn:-translate-y-1 transition-transform" />
                                     </div>

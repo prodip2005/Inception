@@ -14,7 +14,7 @@ export const MinimalMissionButton = () => {
                     hover: { scale: 1.05 },
                     tap: { scale: 0.95 }
                 }}
-                className="absolute inset-0 bg-gradient-to-r from-[#8a0001] to-[#cc0000] rounded-full"
+                className="absolute inset-0 bg-gradient-to-r from-[#d22f27] to-[#cc0000] rounded-full"
             />
 
             {/* Magnetic Hover Effect */}

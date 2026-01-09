@@ -48,7 +48,7 @@ const AddEvents = () => {
     };
 
     // কমন ইনপুট স্টাইল
-    const inputStyle = "w-full bg-white/[0.03] border border-white/10 p-4 rounded-2xl outline-none text-white focus:border-[#8a0001] focus:bg-white/[0.05] transition-all placeholder:text-slate-600 font-mono text-sm";
+    const inputStyle = "w-full bg-white/[0.03] border border-white/10 p-4 rounded-2xl outline-none text-white focus:border-[#d22f27] focus:bg-white/[0.05] transition-all placeholder:text-slate-600 font-mono text-sm";
 
     return (
         <motion.div
@@ -59,12 +59,12 @@ const AddEvents = () => {
             <div className="bg-white/[0.02] border border-white/5 p-8 md:p-12 rounded-[3rem] backdrop-blur-xl relative overflow-hidden">
                 {/* Background Decoration */}
                 <div className="absolute top-0 right-0 p-10 opacity-5 pointer-events-none">
-                    <FaCalendarPlus size={120} className="text-[#8a0001]" />
+                    <FaCalendarPlus size={120} className="text-[#d22f27]" />
                 </div>
 
                 <div className="mb-10">
                     <h2 className="text-3xl font-black text-white uppercase tracking-tighter italic flex items-center gap-3">
-                        <FaCalendarPlus className="text-[#8a0001]" /> Initialize_New_Event
+                        <FaCalendarPlus className="text-[#d22f27]" /> Initialize_New_Event
                     </h2>
                     <p className="text-slate-500 font-mono text-[10px] uppercase tracking-[0.2em] mt-2">
                         // Protocol: Event_Creation // Level: Admin_Root
@@ -134,7 +134,7 @@ const AddEvents = () => {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="w-full bg-[#8a0001] hover:bg-[#a00001] text-white py-5 rounded-2xl font-black uppercase tracking-[0.3em] text-xs transition-all shadow-[0_10px_30px_rgba(138,0,1,0.2)] disabled:opacity-50 flex items-center justify-center gap-3 group"
+                            className="w-full bg-[#d22f27] hover:bg-[#a00001] text-white py-5 rounded-2xl font-black uppercase tracking-[0.3em] text-xs transition-all shadow-[0_10px_30px_rgba(138,0,1,0.2)] disabled:opacity-50 flex items-center justify-center gap-3 group"
                         >
                             {loading ? (
                                 <span className="animate-pulse italic">Uploading_to_Nodes...</span>

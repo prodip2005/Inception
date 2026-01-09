@@ -34,7 +34,7 @@ const Peoples = () => {
     if (loading) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-transparent">
-                <div className="w-10 h-10 border-4 border-[#8a0001]/20 border-t-[#8a0001] rounded-full animate-spin"></div>
+                <div className="w-10 h-10 border-4 border-[#d22f27]/20 border-t-[#d22f27] rounded-full animate-spin"></div>
             </div>
         );
     }
@@ -44,9 +44,9 @@ const Peoples = () => {
             <div className="container mx-auto px-4 md:px-6">
 
                 {/* Header */}
-                <div className="mb-12 md:mb-16 border-l-4 md:border-l-8 border-[#8a0001] pl-4 md:pl-6 text-right flex flex-col items-end">
+                <div className="mb-12 md:mb-16 border-l-4 md:border-l-8 border-[#d22f27] pl-4 md:pl-6 text-right flex flex-col items-end">
                     <h2 className="text-4xl sm:text-5xl md:text-7xl font-black text-white uppercase tracking-tighter leading-none">
-                        HUMAN<span className="text-[#8a0001]">_</span><br className="block md:hidden" />ASSET
+                        HUMAN<span className="text-[#d22f27]">_</span><br className="block md:hidden" />ASSET
                     </h2>
                     <p className="text-slate-500 font-mono text-[10px] md:text-sm tracking-[0.2em] md:tracking-[0.3em] mt-3 md:mt-4 uppercase">
                         // Verified_Core_Personnel_Database: {allPeoples.length}
@@ -84,8 +84,8 @@ const Peoples = () => {
                                     window.scrollTo({ top: 200, behavior: 'smooth' });
                                 }}
                                 className={`group relative px-5 md:px-8 py-2 md:py-3 overflow-hidden rounded-full transition-all duration-500 ${currentPage === i + 1
-                                        ? 'bg-[#8a0001] text-white shadow-[0_0_20px_rgba(138,0,1,0.3)]'
-                                        : 'bg-white/5 text-slate-500 border border-white/5 hover:bg-white/10'
+                                    ? 'bg-[#d22f27] text-white shadow-[0_0_20px_rgba(138,0,1,0.3)]'
+                                    : 'bg-white/5 text-slate-500 border border-white/5 hover:bg-white/10'
                                     }`}
                             >
                                 <span className="relative z-10 font-mono text-[10px] md:text-xs tracking-widest uppercase">

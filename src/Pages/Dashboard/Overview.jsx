@@ -38,7 +38,7 @@ const Overview = () => {
             label: 'Pending Requests',
             value: '00', // future feature
             icon: <FaUserClock />,
-            color: 'text-[#8a0001]'
+            color: 'text-[#d22f27]'
         },
         {
             label: 'Institutions',
@@ -62,7 +62,7 @@ const Overview = () => {
                 {summary.map((item, i) => (
                     <div
                         key={i}
-                        className="p-6 bg-white/[0.03] border border-white/5 rounded-3xl group hover:border-[#8a0001]/30 transition-all"
+                        className="p-6 bg-white/[0.03] border border-white/5 rounded-3xl group hover:border-[#d22f27]/30 transition-all"
                     >
                         <div className={`${item.color} text-2xl mb-4`}>
                             {item.icon}
@@ -83,7 +83,7 @@ const Overview = () => {
                 {/* Recent Requests (static for now) */}
                 <div className="p-8 bg-white/[0.02] border border-white/5 rounded-[2.5rem]">
                     <h3 className="text-white font-bold mb-6 flex items-center gap-2 text-sm italic">
-                        <span className="w-1.5 h-4 bg-[#8a0001] block"></span> RECENT_REQUESTS
+                        <span className="w-1.5 h-4 bg-[#d22f27] block"></span> RECENT_REQUESTS
                     </h3>
                     <div className="space-y-4">
                         {[1, 2, 3].map(i => (
@@ -94,7 +94,7 @@ const Overview = () => {
                                 <span className="text-xs text-slate-300 font-mono">
                                     USER_NODE_{i}02
                                 </span>
-                                <button className="text-[8px] font-bold text-[#8a0001] uppercase tracking-tighter border border-[#8a0001]/30 px-3 py-1 rounded-lg hover:bg-[#8a0001] hover:text-white transition-all">
+                                <button className="text-[8px] font-bold text-[#d22f27] uppercase tracking-tighter border border-[#d22f27]/30 px-3 py-1 rounded-lg hover:bg-[#d22f27] hover:text-white transition-all">
                                     Review
                                 </button>
                             </div>
@@ -103,8 +103,8 @@ const Overview = () => {
                 </div>
 
                 {/* System Message */}
-                <div className="p-8 bg-[#8a0001]/5 border border-[#8a0001]/10 rounded-[2.5rem]">
-                    <h3 className="text-[#8a0001] font-bold mb-4 text-xs uppercase tracking-widest">
+                <div className="p-8 bg-[#d22f27]/5 border border-[#d22f27]/10 rounded-[2.5rem]">
+                    <h3 className="text-[#d22f27] font-bold mb-4 text-xs uppercase tracking-widest">
                         Administrator_Notice
                     </h3>
                     <p className="text-slate-500 text-xs leading-relaxed font-mono">

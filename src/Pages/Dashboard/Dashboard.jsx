@@ -26,11 +26,11 @@ const Dashboard = () => {
             <aside className="w-20 md:w-72 bg-white/[0.01] border-r border-white/5 flex flex-col h-screen sticky top-0 transition-all duration-300 backdrop-blur-3xl z-50">
                 <div className="p-6 mb-8">
                     <Link to="/" className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-[#8a0001] rounded flex items-center justify-center text-white shadow-[0_0_15px_rgba(138,0,1,0.5)]">
+                        <div className="w-8 h-8 bg-[#d22f27] rounded flex items-center justify-center text-white shadow-[0_0_15px_rgba(138,0,1,0.5)]">
                             <FaDatabase size={12} />
                         </div>
-                        <h2 className="hidden md:block font-black text-white tracking-tighter text-xl italic uppercase underline decoration-[#8a0001]">
-                            Inception<span className="text-[#8a0001]">_</span>
+                        <h2 className="hidden md:block font-black text-white tracking-tighter text-xl italic uppercase underline decoration-[#d22f27]">
+                            Inception<span className="text-[#d22f27]">_</span>
                         </h2>
                     </Link>
                 </div>
@@ -43,18 +43,18 @@ const Dashboard = () => {
                                 key={item.id}
                                 to={item.path}
                                 className={`flex items-center gap-4 px-4 py-3.5 w-full rounded-xl transition-all group relative ${isActive
-                                        ? 'bg-[#8a0001]/10 text-white border border-[#8a0001]/20'
-                                        : 'text-slate-500 hover:bg-white/5 hover:text-white'
+                                    ? 'bg-[#d22f27]/10 text-white border border-[#d22f27]/20'
+                                    : 'text-slate-500 hover:bg-white/5 hover:text-white'
                                     }`}
                             >
-                                <span className={`${isActive ? 'text-[#8a0001]' : 'group-hover:text-[#8a0001]'} transition-colors`}>
+                                <span className={`${isActive ? 'text-[#d22f27]' : 'group-hover:text-[#d22f27]'} transition-colors`}>
                                     {item.icon}
                                 </span>
                                 <span className="hidden md:block font-mono text-[10px] font-bold uppercase tracking-widest text-left">
                                     {item.label}
                                 </span>
                                 {item.alert && (
-                                    <span className="absolute right-3 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-[#8a0001] rounded-full animate-pulse shadow-[0_0_8px_#8a0001]"></span>
+                                    <span className="absolute right-3 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-[#d22f27] rounded-full animate-pulse shadow-[0_0_8px_#d22f27]"></span>
                                 )}
                             </Link>
                         );
@@ -78,16 +78,16 @@ const Dashboard = () => {
                     </div>
                     <div className="flex items-center gap-4">
                         <div className="h-8 w-[1px] bg-white/10"></div>
-                        <div className="text-[10px] font-mono text-[#8a0001] animate-pulse">SYSTEM_LIVE</div>
+                        <div className="text-[10px] font-mono text-[#d22f27] animate-pulse">SYSTEM_LIVE</div>
                     </div>
                 </div>
 
                 <div className="max-w-6xl mx-auto pt-12 pb-12 px-6 md:px-12">
                     {/* Dynamic Header based on Route */}
-                    <header className="mb-12 border-l-4 border-[#8a0001] pl-6">
+                    <header className="mb-12 border-l-4 border-[#d22f27] pl-6">
                         <h1 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter leading-none">
                             {location.pathname === '/admin' ? 'OVERVIEW' : location.pathname.split('/').pop().replace('-', '_')}
-                            <span className="text-[#8a0001]">_</span>
+                            <span className="text-[#d22f27]">_</span>
                         </h1>
                     </header>
 

@@ -6,9 +6,9 @@ const JoinForm = () => {
     const [selectedDivision, setSelectedDivision] = useState("");
     const [selectedDistrict, setSelectedDistrict] = useState("");
 
-    const inputClasses = "w-full bg-white/5 border border-white/10 rounded-lg pl-10 pr-3 py-2.5 md:py-4 md:pl-12 text-sm md:text-base text-white placeholder-gray-500 focus:outline-none focus:border-[#8a0001]/50 focus:bg-white/10 transition-all duration-300 appearance-none";
-    const labelClasses = "block text-[9px] md:text-[13px] uppercase tracking-[0.15em] md:tracking-[0.2em] font-black text-[#8a0001] mb-1.5 ml-1";
-    const iconWrapperClasses = "absolute left-3.5 inset-y-0 flex items-center justify-center text-gray-500 group-focus-within:text-[#8a0001] transition-colors duration-300 pointer-events-none";
+    const inputClasses = "w-full bg-white/5 border border-white/10 rounded-lg pl-10 pr-3 py-2.5 md:py-4 md:pl-12 text-sm md:text-base text-white placeholder-gray-500 focus:outline-none focus:border-[#d22f27]/50 focus:bg-white/10 transition-all duration-300 appearance-none";
+    const labelClasses = "block text-[9px] md:text-[13px] uppercase tracking-[0.15em] md:tracking-[0.2em] font-black text-[#d22f27] mb-1.5 ml-1";
+    const iconWrapperClasses = "absolute left-3.5 inset-y-0 flex items-center justify-center text-gray-500 group-focus-within:text-[#d22f27] transition-colors duration-300 pointer-events-none";
 
     const bdData = {
         "Barishal": ["Barguna", "Barishal", "Bhola", "Jhalokati", "Patuakhali", "Pirojpur"],
@@ -29,7 +29,7 @@ const JoinForm = () => {
     return (
         <section className="py-16 md:py-28 px-4 md:px-6 relative overflow-hidden bg-transparent" id="join">
             {/* Background Glow */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[#8a0001]/5 blur-[120px] pointer-events-none"></div>
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[#d22f27]/5 blur-[120px] pointer-events-none"></div>
 
             <div className="max-w-4xl mx-auto relative z-10">
 
@@ -41,7 +41,7 @@ const JoinForm = () => {
                         viewport={{ once: true }}
                     >
                         <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-white mb-6 uppercase italic">
-                            Join the <span className="text-[#8a0001] drop-shadow-[0_0_15px_rgba(138,0,1,0.5)]">Movement</span>
+                            Join the <span className="text-[#d22f27] drop-shadow-[0_0_15px_rgba(138,0,1,0.5)]">Movement</span>
                         </h2>
                         <p className="text-slate-400 text-sm md:text-lg max-w-2xl mx-auto leading-relaxed px-4">
                             Whether you are a student, teacher, or community member, there is a place for you at <span className="text-white font-bold">Inception</span>.
@@ -150,7 +150,7 @@ const JoinForm = () => {
                             <motion.button
                                 whileHover={{ scale: 1.02, backgroundColor: "#a00001" }}
                                 whileTap={{ scale: 0.98 }}
-                                className="w-full py-5 bg-[#8a0001] text-white font-black uppercase tracking-[0.4em] text-xs md:text-sm rounded-2xl shadow-[0_10px_30px_rgba(138,0,1,0.3)] transition-all flex items-center justify-center gap-3"
+                                className="w-full py-5 bg-[#d22f27] text-white font-black uppercase tracking-[0.4em] text-xs md:text-sm rounded-2xl shadow-[0_10px_30px_rgba(138,0,1,0.3)] transition-all flex items-center justify-center gap-3"
                             >
                                 Submit Application <FaPaperPlane size={14} />
                             </motion.button>
