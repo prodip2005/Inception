@@ -97,7 +97,7 @@ const Members = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.2 }}
-                            className="group relative p-0.5 md:p-1 border border-white/5 rounded-[1.5rem] md:rounded-[3rem] bg-white/[0.03] backdrop-blur-2xl transition-all duration-500 hover:border-[#d22f27]/30 h-full"
+                            className="group relative p-0.5 md:p-1 border border-white/5 rounded-3xl md:rounded-[3rem] bg-white/3 backdrop-blur-2xl transition-all duration-500 hover:border-[#d22f27]/30 h-full"
                         >
                             <div className="p-4 md:p-10 flex flex-col h-full relative overflow-hidden">
 

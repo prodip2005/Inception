@@ -8,9 +8,10 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import AddEvents from "../Pages/Dashboard/AddEvents";
 import AddPeople from "../Pages/Dashboard/AddPeople";
 import AddInstitutions from "../Pages/Dashboard/AddInstitutions";
-import AddMembers from "../Pages/Dashboard/AddMembers";
+import AllMembers from "../Pages/Dashboard/AllMembers";
 import RequestedMembers from "../Pages/Dashboard/RequestedMembers";
 import Overview from "../Pages/Dashboard/Overview";
+import Edit from "../Pages/Dashboard/Edit";
 
 const router = createBrowserRouter([
     {
@@ -19,19 +20,19 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                Component:Home
+                Component: Home
             },
             {
                 path: '/institutions',
-                Component:Institutions
+                Component: Institutions
             },
             {
                 path: '/peoples',
-                Component:Peoples
+                Component: Peoples
             },
             {
                 path: '/join',
-                Component:JoinForm
+                Component: JoinForm
             }
         ]
     },
@@ -44,29 +45,33 @@ const router = createBrowserRouter([
                 Component: Overview
             },
             {
-                
+
                 path: 'add-events',
-                Component:AddEvents
+                Component: AddEvents
             },
             {
                 path: 'add-peoples',
-                Component:AddPeople
+                Component: AddPeople
             },
             {
                 path: 'add-institutions',
-                Component:AddInstitutions
+                Component: AddInstitutions
             },
             {
-                path: 'add-members',
-                Component:AddMembers
+                path: 'all-members',
+                Component: AllMembers
             },
             {
                 path: 'requested-members',
-                Component:RequestedMembers
+                Component: RequestedMembers
+            },
+            {
+                path: 'edit',
+                Component: Edit
             }
         ]
     }
 
-    
+
 ])
 export default router;

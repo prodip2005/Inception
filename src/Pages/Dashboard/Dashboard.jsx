@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
-    FaUsers, FaGraduationCap, FaCalendarPlus,
-    FaUserPlus, FaUserCheck, FaDatabase, FaCogs, FaThLarge, FaSignOutAlt
+    FaUsers, FaGraduationCap, FaCalendarPlus, FaUserCheck, FaDatabase, FaCogs, FaThLarge, FaSignOutAlt,
+    FaUser
 } from 'react-icons/fa';
 import { Link, Outlet, useLocation } from 'react-router';
 
@@ -15,8 +15,9 @@ const Dashboard = () => {
         { id: 2, label: 'Add Events', icon: <FaCalendarPlus />, path: '/admin/add-events' },
         { id: 3, label: 'Add Peoples', icon: <FaUsers />, path: '/admin/add-peoples' },
         { id: 4, label: 'Add Institutions', icon: <FaGraduationCap />, path: '/admin/add-institutions' },
-        { id: 5, label: 'Add Members', icon: <FaUserPlus />, path: '/admin/add-members' },
+        { id: 5, label: 'All Members', icon: <FaUser />, path: '/admin/all-members' },
         { id: 6, label: 'Requests', icon: <FaUserCheck />, path: '/admin/requested-members', alert: true },
+        { id: 7, label: 'Edit', icon: <FaCogs />, path: '/admin/edit' },
     ];
 
     return (

@@ -1,11 +1,10 @@
 import React from 'react';
 
-const AddMembers = () => {
+const AllMembers = () => {
     return (
         <div>
-            
         </div>
     );
 };
 
-export default AddMembers;
+export default AllMembers;
