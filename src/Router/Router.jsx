@@ -13,6 +13,10 @@ import RequestedMembers from "../Pages/Dashboard/RequestedMembers";
 import Overview from "../Pages/Dashboard/Overview";
 import Edit from "../Pages/Dashboard/Edit";
 import MembersList from "../Pages/Members/MembersList";
+import AddAdmin from "../Pages/Authentication/AddAdmin";
+import ManageAdmins from "../Pages/Authentication/ManageAdmins";
+import Login from "../Pages/Authentication/Login";
+import AdminRoute from "../Pages/Authentication/AdminRoute";
 
 const router = createBrowserRouter([
     {
@@ -38,12 +42,19 @@ const router = createBrowserRouter([
             {
                 path: '/all-members',
                 Component:MembersList
+            },
+            {
+                path: '/login',
+                Component:Login
             }
         ]
     },
     {
         path: 'admin',
-        Component: Dashboard,
+        element:
+            <AdminRoute>
+                <Dashboard/>
+            </AdminRoute>,
         children: [
             {
                 index: true, // এটিই ওভারভিউ দেখাবে যখন ইউজার সরাসরি /admin এ থাকবে
@@ -73,7 +84,15 @@ const router = createBrowserRouter([
             {
                 path: 'edit',
                 Component: Edit
-            }
+            },
+            {
+                path: "add-admin",
+                element: <AddAdmin />
+            },
+            {
+                path: "manage-admins",
+                element: <ManageAdmins />
+            },
         ]
     }
 

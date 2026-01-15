@@ -2,7 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import {
     FaUsers, FaGraduationCap, FaCalendarPlus, FaUserCheck, FaDatabase, FaCogs, FaThLarge, FaSignOutAlt,
-    FaUser
+    FaUser,
+    FaUserPlus,
+    FaShieldAlt
 } from 'react-icons/fa';
 import { Link, Outlet, useLocation } from 'react-router';
 
@@ -18,6 +20,8 @@ const Dashboard = () => {
         { id: 5, label: 'All Members', icon: <FaUser />, path: '/admin/all-members' },
         { id: 6, label: 'Requests', icon: <FaUserCheck />, path: '/admin/requested-members', alert: true },
         { id: 7, label: 'Edit', icon: <FaCogs />, path: '/admin/edit' },
+        { id: 8, label: 'Add Admin', icon: <FaUserPlus />, path: '/admin/add-admin' },
+        { id: 9, label: 'Manage Admins', icon: <FaShieldAlt />, path: '/admin/manage-admins' },
     ];
 
     return (
