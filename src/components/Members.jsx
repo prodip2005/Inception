@@ -143,21 +143,7 @@ const Members = () => {
                     ))}
                 </div>
 
-                {/* Footer */}
-                <div className="mt-12 md:mt-20 flex justify-center">
-                    <div className="px-4 py-1.5 md:px-6 md:py-2 bg-white/5 rounded-full border border-white/5 flex items-center gap-3 text-slate-500 font-mono text-[8px] md:text-[9px] uppercase tracking-widest">
-                        <div className="flex gap-1">
-                            {[1, 2, 3].map(i => (
-                                <div
-                                    key={i}
-                                    className="w-1 h-1 bg-[#d22f27] rounded-full animate-bounce"
-                                    style={{ animationDelay: `${i * 0.2}s` }}
-                                />
-                            ))}
-                        </div>
-                        Nodes_Secure
-                    </div>
-                </div>
+               
 
             </div>
 

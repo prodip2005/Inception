@@ -17,7 +17,7 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" className="py-32 relative bg-transparent overflow-hidden">
+        <section id="contact" className="py-32 relative bg-transparent ">
             {/* Dynamic Background Glows */}
             <div className="absolute top-0 left-[-10%] w-[500px] h-[500px] bg-[#d22f27]/10 blur-[120px] rounded-full pointer-events-none animate-pulse"></div>
 

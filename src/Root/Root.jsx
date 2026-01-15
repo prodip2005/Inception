@@ -20,7 +20,7 @@ const Root = () => {
             <Navbar />
 
             {/* --- ৩. মেইন কন্টেন্ট এরিয়া --- */}
-            <main className="relative z-10 flex-grow w-full pt-24 md:pt-28">
+            <main className="relative z-10 flex-grow w-full pt-24 md:pt-0">
                 <div className="max-w-7xl mx-auto px-4 md:px-8">
                     <Outlet />
                 </div>
