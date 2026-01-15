@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaUser, FaEnvelope, FaPhone, FaUniversity, FaPaperPlane, FaTools, FaGamepad, FaMapMarkerAlt, FaGlobe } from 'react-icons/fa';
+import { FaUser, FaEnvelope, FaPhone, FaUniversity, FaPaperPlane, FaTools, FaGamepad, FaMapMarkerAlt, FaGlobe, FaImage } from 'react-icons/fa';
 import Swal from 'sweetalert2';
-import useAxios from '../../hooks/useAxios'; // আপনার হুক
+import useAxios from '../../hooks/useAxios';
 
 const JoinForm = () => {
-    // আপনি হুক থেকে axiosSecure রিটার্ন পাচ্ছেন, তাই এখানে সেটাই লিখুন
     const axiosSecure = useAxios();
 
     const [selectedDivision, setSelectedDivision] = useState("");
@@ -40,6 +39,7 @@ const JoinForm = () => {
             name: form.fullName.value,
             email: form.email.value,
             phone: form.phone.value,
+            image: form.image.value || "", // ইমেজ লিঙ্কটি এখানে ধরা হয়েছে
             division: selectedDivision,
             district: selectedDistrict,
             institution: form.institution.value,
@@ -58,7 +58,6 @@ const JoinForm = () => {
                 didOpen: () => Swal.showLoading()
             });
 
-            // এখানে axiosSecure ব্যবহার করা হয়েছে
             const res = await axiosSecure.post('/send-otp', userData);
 
             if (res.data.success) {
@@ -105,7 +104,6 @@ const JoinForm = () => {
             }
         } catch (error) {
             setLoading(false);
-            console.error("Error Detail:", error);
             Swal.fire({
                 icon: 'error',
                 title: 'SYNC_FAILED',
@@ -131,7 +129,8 @@ const JoinForm = () => {
 
                 <motion.div className="bg-white/[0.02] backdrop-blur-3xl border border-white/10 rounded-[2.5rem] p-6 md:p-14 shadow-2xl">
                     <form onSubmit={handleSubmit} className="space-y-6 md:space-y-10">
-                        {/* inputs fields */}
+
+                        {/* 1st Row: Name & Email */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10">
                             <div className="group">
                                 <label className={labelClasses}>Full Name</label>
@@ -149,6 +148,7 @@ const JoinForm = () => {
                             </div>
                         </div>
 
+                        {/* 2nd Row: Phone & Image Link */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10">
                             <div className="group">
                                 <label className={labelClasses}>Phone Number</label>
@@ -157,6 +157,17 @@ const JoinForm = () => {
                                     <input name="phone" type="tel" placeholder="01XXXXXXXXX" className={inputClasses} required />
                                 </div>
                             </div>
+                            <div className="group">
+                                <label className={labelClasses}>Profile Image URL</label>
+                                <div className="relative">
+                                    <div className={iconWrapperClasses}><FaImage size={14} /></div>
+                                    <input name="image" type="url" placeholder="https://imgbb.com/your-image.jpg" className={inputClasses} />
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* 3rd Row: Division & District */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10">
                             <div className="group">
                                 <label className={labelClasses}>Division</label>
                                 <div className="relative">
@@ -167,9 +178,6 @@ const JoinForm = () => {
                                     </select>
                                 </div>
                             </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10">
                             <div className="group">
                                 <label className={labelClasses}>District</label>
                                 <div className="relative">
@@ -180,6 +188,10 @@ const JoinForm = () => {
                                     </select>
                                 </div>
                             </div>
+                        </div>
+
+                        {/* 4th Row: Institution & Hobby */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10">
                             <div className="group">
                                 <label className={labelClasses}>Institution</label>
                                 <div className="relative">
@@ -187,9 +199,6 @@ const JoinForm = () => {
                                     <input name="institution" type="text" placeholder="Institution Name" className={inputClasses} required />
                                 </div>
                             </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10">
                             <div className="group">
                                 <label className={labelClasses}>Hobby</label>
                                 <div className="relative">
@@ -197,12 +206,14 @@ const JoinForm = () => {
                                     <input name="hobby" type="text" placeholder="Creative Pursuits" className={inputClasses} />
                                 </div>
                             </div>
-                            <div className="group">
-                                <label className={labelClasses}>Skills</label>
-                                <div className="relative">
-                                    <div className={iconWrapperClasses}><FaTools size={14} /></div>
-                                    <input name="skills" type="text" placeholder="Comma separated" className={inputClasses} />
-                                </div>
+                        </div>
+
+                        {/* 5th Row: Skills */}
+                        <div className="group">
+                            <label className={labelClasses}>Skills</label>
+                            <div className="relative">
+                                <div className={iconWrapperClasses}><FaTools size={14} /></div>
+                                <input name="skills" type="text" placeholder="Specialization (comma separated)" className={inputClasses} />
                             </div>
                         </div>
 
@@ -211,9 +222,9 @@ const JoinForm = () => {
                                 type="submit"
                                 disabled={loading}
                                 whileHover={{ scale: 1.02 }}
-                                className="w-full py-5 bg-[#d22f27] text-white font-black uppercase tracking-[0.4em] text-xs md:text-sm rounded-2xl disabled:opacity-50"
+                                className="w-full py-5 bg-[#d22f27] text-white font-black uppercase tracking-[0.4em] text-xs md:text-sm rounded-2xl shadow-[0_10px_30px_rgba(138,0,1,0.3)] transition-all flex items-center justify-center gap-3 disabled:opacity-50"
                             >
-                                {loading ? 'PROCESSING...' : 'SUBMIT APPLICATION'} <FaPaperPlane className="inline ml-2" size={14} />
+                                {loading ? 'PROCESSING...' : 'SUBMIT APPLICATION'} <FaPaperPlane size={14} />
                             </motion.button>
                         </div>
                     </form>

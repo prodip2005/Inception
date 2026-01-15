@@ -12,6 +12,7 @@ import AllMembers from "../Pages/Dashboard/AllMembers";
 import RequestedMembers from "../Pages/Dashboard/RequestedMembers";
 import Overview from "../Pages/Dashboard/Overview";
 import Edit from "../Pages/Dashboard/Edit";
+import MembersList from "../Pages/Members/MembersList";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
             {
                 path: '/join',
                 Component: JoinForm
+            },
+            {
+                path: '/all-members',
+                Component:MembersList
             }
         ]
     },

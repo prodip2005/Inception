@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
 import { useNavigate } from 'react-router';
-import { FaGraduationCap, FaUsers, FaArrowRight, FaDatabase, FaEye } from 'react-icons/fa';
+import { FaGraduationCap, FaUsers, FaArrowRight, FaDatabase, FaEye, FaUserTie } from 'react-icons/fa';
 import useAxios from '../hooks/useAxios';
 
 const Counter = ({ value }) => {
@@ -22,16 +22,24 @@ const Members = () => {
 
     const [instCount, setInstCount] = useState(0);
     const [peopleCount, setPeopleCount] = useState(0);
+    const [memberCount, setMemberCount] = useState(0);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         Promise.all([
             axiosSecure.get('/institutions'),
-            axiosSecure.get('/peoples')
+            axiosSecure.get('/peoples'),
+            axiosSecure.get('/users')
         ])
-            .then(([instRes, peopleRes]) => {
+            .then(([instRes, peopleRes, userRes]) => {
                 setInstCount(instRes.data.length);
                 setPeopleCount(peopleRes.data.length);
+
+                // --- ফিল্টারিং লজিক এখানে ---
+                // শুধুমাত্র যাদের status === "active", তাদের কাউন্ট করা হচ্ছে
+                const activeOnes = userRes.data.filter(user => user.status === "active");
+                setMemberCount(activeOnes.length);
+
                 setLoading(false);
             })
             .catch(err => {
@@ -48,39 +56,51 @@ const Members = () => {
             count: instCount,
             icon: <FaGraduationCap />,
             path: "/institutions",
-            label: "INST_01",
+            label: "Total_Nodes"
         },
         {
-            title: "Peoples",
+            title: "VIP Personnel",
             shortDesc: "Core personnel.",
-            desc: "Core personnel, visionaries, and strategic advisory board.",
+            desc: "Visionaries, and strategic advisory board members of inception.",
             count: peopleCount,
-            icon: <FaUsers />,
+            icon: <FaUserTie />,
             path: "/peoples",
-            label: "USR_01",
+            label: "Elite_Units"
+        },
+        {
+            title: "Members",
+            shortDesc: "General Force.",
+            desc: "The heartbeat of our movement. Dedicated active members.",
+            count: memberCount, // এখানে এখন শুধুমাত্র active সংখ্যা দেখাবে
+            icon: <FaUsers />,
+            path: "/all-members",
+            label: "Active_Cores"
         }
     ];
 
     return (
         <section className="py-16 md:py-24 relative bg-transparent overflow-hidden">
-            <div className="container mx-auto max-w-6xl px-4 md:px-6 relative z-10">
+            {/* Background Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#d22f27]/5 blur-[120px] pointer-events-none"></div>
 
-                {/* Header */}
+            <div className="container mx-auto max-w-7xl px-4 md:px-6 relative z-10">
+
+                {/* Header Section */}
                 <header className="mb-12 md:mb-20 flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/10 pb-8 md:pb-12">
                     <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }}>
                         <div className="flex items-center gap-3 mb-4 md:mb-6">
-                            <div className="h-[1px] md:h-[2px] w-8 md:w-12 bg-[#d22f27]"></div>
-                            <span className="text-[#d22f27] font-mono text-[10px] md:text-xs tracking-[0.3em] uppercase animate-pulse">
-                                Data_Sync_Active
+                            <div className="h-[2px] w-12 bg-[#d22f27]"></div>
+                            <span className="text-[#d22f27] font-mono text-xs tracking-[0.3em] uppercase animate-pulse">
+                                Registry_Sync_Active
                             </span>
                         </div>
-                        <h2 className="text-5xl md:text-8xl font-black bg-clip-text text-transparent bg-gradient-to-r from-[#d22f27] via-red-500 to-white leading-none tracking-tighter uppercase">
+                        <h2 className="text-5xl md:text-8xl font-black bg-clip-text text-transparent bg-gradient-to-r from-[#d22f27] via-red-500 to-white leading-none tracking-tighter uppercase italic">
                             NETWORK<span className="text-[#d22f27] animate-pulse">_</span>
                         </h2>
                     </motion.div>
 
                     <div className="text-right font-mono hidden md:block text-slate-500 text-[10px]">
-                        <p className="mb-2 uppercase tracking-widest">// System_Archives</p>
+                        <p className="mb-2 uppercase tracking-widest">// Data_Integrity</p>
                         <div className="flex items-center gap-2 text-white/80 text-sm">
                             <FaDatabase className="text-[#d22f27]" />
                             <span>NODE_STABLE: 100%</span>
@@ -88,8 +108,8 @@ const Members = () => {
                     </div>
                 </header>
 
-                {/* Cards */}
-                <div className="grid grid-cols-2 gap-3 md:gap-10">
+                {/* Cards Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 items-stretch">
                     {categories.map((item, idx) => (
                         <motion.div
                             key={idx}
@@ -97,62 +117,52 @@ const Members = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.2 }}
-                            className="group relative p-0.5 md:p-1 border border-white/5 rounded-3xl md:rounded-[3rem] bg-white/3 backdrop-blur-2xl transition-all duration-500 hover:border-[#d22f27]/30 h-full"
+                            className="group relative flex"
                         >
-                            <div className="p-4 md:p-10 flex flex-col h-full relative overflow-hidden">
+                            <div className="flex flex-col w-full p-6 md:p-10 border border-white/5 rounded-[2rem] md:rounded-[3rem] bg-white/[0.03] backdrop-blur-3xl transition-all duration-500 hover:border-[#d22f27]/40 hover:bg-white/[0.05] shadow-2xl">
 
-                                <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 md:mb-16 gap-2">
-                                    <div className="p-3 md:p-5 bg-white/5 rounded-xl md:rounded-2xl border border-white/10 text-white/80 group-hover:text-[#d22f27] transition-all">
-                                        <span className="text-xl md:text-4xl">{item.icon}</span>
+                                {/* Top Section: Icon & Counter */}
+                                <div className="flex justify-between items-start mb-8 md:mb-16">
+                                    <div className="p-4 bg-white/5 rounded-2xl border border-white/10 text-white/80 group-hover:text-[#d22f27] group-hover:scale-110 transition-all duration-500 shadow-lg">
+                                        <span className="text-2xl md:text-4xl">{item.icon}</span>
                                     </div>
-
-                                    <div className="text-left md:text-right">
-                                        <div className="text-2xl md:text-5xl font-black text-white leading-none">
+                                    <div className="text-right">
+                                        <div className="text-3xl md:text-5xl font-black text-white leading-none">
                                             {loading ? ".." : <Counter value={item.count} />}+
                                         </div>
-                                        <div className="font-mono text-[8px] md:text-[9px] text-slate-500 tracking-widest uppercase mt-1">
+                                        <div className="font-mono text-[8px] md:text-[10px] text-slate-500 tracking-widest uppercase mt-1">
                                             {item.label}
                                         </div>
                                     </div>
                                 </div>
 
-                                <h3 className="text-lg md:text-4xl font-black text-white mb-2 md:mb-4 tracking-tighter uppercase">
-                                    {item.title}
-                                </h3>
-
-                                <p className="text-slate-400 text-[10px] md:text-sm leading-tight md:leading-relaxed mb-8 md:mb-12 opacity-70">
-                                    <span className="md:hidden">{item.shortDesc}</span>
-                                    <span className="hidden md:inline">{item.desc}</span>
-                                </p>
-
-                                <div className="mt-auto pt-4 md:pt-8 border-t border-white/10">
-                                    <button
-                                        onClick={() => navigate(item.path)}
-                                        className="group/btn relative flex items-center justify-between w-full md:w-auto md:min-w-[190px] px-4 md:px-6 py-2.5 md:py-3.5 bg-[#d22f27] border border-[#d22f27] rounded-full text-white overflow-hidden transition-all duration-300 hover:bg-[#a00001] hover:shadow-[0_0_25px_rgba(138,0,1,0.5)] active:scale-95"
-                                    >
-                                        <span className="font-mono text-[9px] md:text-[11px] font-bold tracking-[0.2em] uppercase relative z-10 flex items-center gap-2">
-                                            <FaEye className="text-[10px] md:text-xs" />See The List
-                                        </span>
-                                        <FaArrowRight className="text-[10px] md:text-xs transition-transform duration-300 group-hover/btn:translate-x-1 relative z-10" />
-                                        <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover/btn:animate-[shimmer_2s_infinite]"></div>
-                                    </button>
+                                {/* Content Section */}
+                                <div className="flex-grow">
+                                    <h3 className="text-xl md:text-4xl font-black text-white mb-3 md:mb-4 tracking-tighter uppercase italic group-hover:text-[#d22f27] transition-colors">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-slate-400 text-xs md:text-sm leading-relaxed opacity-70 group-hover:opacity-100 transition-opacity">
+                                        {item.desc}
+                                    </p>
                                 </div>
 
+                                {/* Bottom Section: Action Button */}
+                                <div className="mt-10 pt-8 border-t border-white/5">
+                                    <button
+                                        onClick={() => navigate(item.path)}
+                                        className="group/btn flex items-center justify-between w-full px-6 py-4 bg-transparent border border-white/10 rounded-2xl text-white transition-all duration-300 hover:bg-[#d22f27] hover:border-[#d22f27] hover:shadow-[0_0_20px_rgba(210,47,39,0.3)]"
+                                    >
+                                        <span className="font-mono text-[10px] font-bold tracking-[0.2em] uppercase flex items-center gap-2">
+                                            <FaEye className="group-hover/btn:animate-pulse" /> View List
+                                        </span>
+                                        <FaArrowRight className="transition-transform duration-300 group-hover/btn:translate-x-2" />
+                                    </button>
+                                </div>
                             </div>
                         </motion.div>
                     ))}
                 </div>
-
-               
-
             </div>
-
-            <style jsx>{`
-                @keyframes shimmer {
-                    0% { transform: translateX(-100%); }
-                    100% { transform: translateX(100%); }
-                }
-            `}</style>
         </section>
     );
 };

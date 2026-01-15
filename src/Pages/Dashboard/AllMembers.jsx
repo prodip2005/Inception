@@ -14,17 +14,16 @@ const AllMembers = () => {
     const itemsPerPage = 5; // Protiti page-e 5-ti data thakbe
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setLoading(true);
         axiosSecure.get('/users')
             .then(res => {
-                setUsers(res.data);
+                // শুধুমাত্র এপ্রুভড মেম্বারদের ফিল্টার করে দেখানো
+                const activeMembers = res.data.filter(user => user.status === "active");
+                setUsers(activeMembers);
                 setLoading(false);
             })
-            .catch(err => {
-                console.error(err);
-                setLoading(false);
-            });
-    }, [axiosSecure]);
+    }, []);
 
     // Search and Filter Logic
     const filteredUsers = useMemo(() => {
