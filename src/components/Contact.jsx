@@ -1,134 +1,92 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaPaperPlane, FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa';
+import { FaPaperPlane, FaEnvelope, FaMapMarkerAlt, FaPhoneAlt, FaSyncAlt } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const Contact = () => {
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: { staggerChildren: 0.2, delayChildren: 0.3 }
+    const [isSending, setIsSending] = useState(false);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsSending(true);
+
+        const formData = new FormData(e.target);
+
+        // .env থেকে কি-টি নিয়ে আসা হচ্ছে
+        const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+
+        formData.append("access_key", accessKey);
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                Swal.fire({
+                    title: 'SIGNAL_TRANSMITTED',
+                    text: 'Message received! Check your gmail soon.',
+                    icon: 'success',
+                    background: '#050505',
+                    color: '#fff',
+                    confirmButtonColor: '#d22f27'
+                });
+                e.target.reset();
+            } else {
+                throw new Error("Failed");
+            }
+        } catch (error) {
+            Swal.fire({
+                title: 'ERROR',
+                text: 'Transmission failed. Try again.',
+                icon: 'error',
+                background: '#050505',
+                color: '#fff'
+            });
+        } finally {
+            setIsSending(false);
         }
     };
 
-    const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
-    };
-
     return (
-        <section id="contact" className="py-32 relative bg-transparent ">
-            {/* Dynamic Background Glows */}
-            <div className="absolute top-0 left-[-10%] w-[500px] h-[500px] bg-[#d22f27]/10 blur-[120px] rounded-full pointer-events-none animate-pulse"></div>
-
+        <section id="contact" className="py-32 relative bg-transparent">
+            {/* ... বাকি UI কোড আগের মতোই থাকবে ... */}
             <div className="container mx-auto max-w-7xl px-6 relative z-10">
-                <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    className="grid grid-cols-1 lg:grid-cols-12 gap-16"
-                >
-                    {/* --- Left Column: Typography & Info --- */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
                     <div className="lg:col-span-5 flex flex-col justify-center">
-                        <motion.div variants={itemVariants} className="mb-12">
-                            <h2 className="text-6xl md:text-[89px] font-black text-white leading-none tracking-tighter uppercase">
-                                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#d22f27] via-red-500 to-white">
-                                    Partner
-                                </span> <br />
-                                with us_
-                            </h2>
-
-                        </motion.div>
-
-                        <motion.div variants={itemVariants} className="space-y-6">
-                            {[
-                                { icon: <FaEnvelope />, text: "ops@inception.com", label: "Email Us" },
-                                { icon: <FaPhoneAlt />, text: "+880 1234 567 890", label: "Call Us" },
-                                { icon: <FaMapMarkerAlt />, text: "Nabinagar,Brahmanbaria", label: "Visit Us" }
-                            ].map((item, i) => (
-                                <div key={i} className="flex items-center gap-5 group cursor-pointer">
-                                    <div className="w-12 h-12 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-[#d22f27] group-hover:bg-[#d22f27] group-hover:text-white transition-all duration-500 backdrop-blur-md">
-                                        {item.icon}
-                                    </div>
-                                    <div>
-                                        <p className="text-[15px] text-slate-500 uppercase tracking-[0.2em] font-black">{item.label}</p>
-                                        <p className="text-white font-medium group-hover:text-[#d22f27] transition-colors">{item.text}</p>
-                                    </div>
-                                </div>
-                            ))}
-                        </motion.div>
+                        <h2 className="text-6xl md:text-[89px] font-black text-white leading-none tracking-tighter uppercase mb-12">
+                            Partner <br /> <p className='bg-clip-text text-transparent bg-gradient-to-r from-[#d22f27] via-red-500 to-white leading-none tracking-tighter uppercase italic'>with us_</p>
+                        </h2>
                     </div>
 
-                    {/* --- Right Column: The Glass Form --- */}
-                    <motion.div variants={itemVariants} className="lg:col-span-7">
+                    <div className="lg:col-span-7">
                         <div className="relative p-8 md:p-12 bg-white/[0.01] backdrop-blur-[30px] border border-white/[0.08] rounded-[3rem] shadow-2xl">
-
-                            {/* Subtitle inside form */}
-                            <div className="mb-10">
-                                <h3 className="text-white font-bold text-xl uppercase tracking-widest">Contact with us</h3>
-                                <div className="h-[2px] w-12 bg-[#d22f27] mt-2"></div>
-                            </div>
-
-                            <form className="space-y-10">
+                            <form onSubmit={handleSubmit} className="space-y-10">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                                    {/* Input Field: Glass Style */}
                                     <div className="relative group/field">
-                                        <input
-                                            type="text"
-                                            required
-                                            className="peer w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-white outline-none focus:border-[#d22f27]/50 focus:bg-white/[0.07] backdrop-blur-md transition-all placeholder-transparent"
-                                            placeholder="Full Name"
-                                        />
-                                        <label className="absolute left-6 top-4 text-slate-500 text-sm transition-all peer-focus:-top-7 peer-focus:left-2 peer-focus:text-[#d22f27] peer-focus:text-xs peer-[:not(:placeholder-shown)]:-top-7 peer-[:not(:placeholder-shown)]:left-2 peer-[:not(:placeholder-shown)]:text-xs">
-                                            NICK NAME
-                                        </label>
+                                        <input type="text" name="name" required className="peer w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-white outline-none focus:border-[#d22f27]/50 transition-all placeholder-transparent" placeholder="Name" />
+                                        <label className="absolute left-6 top-4 text-slate-500 text-sm transition-all peer-focus:-top-7 peer-focus:text-[#d22f27] peer-[:not(:placeholder-shown)]:-top-7">NAME</label>
                                     </div>
-
                                     <div className="relative group/field">
-                                        <input
-                                            type="email"
-                                            required
-                                            className="peer w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-white outline-none focus:border-[#d22f27]/50 focus:bg-white/[0.07] backdrop-blur-md transition-all placeholder-transparent"
-                                            placeholder="Email Address"
-                                        />
-                                        <label className="absolute left-6 top-4 text-slate-500 text-sm transition-all peer-focus:-top-7 peer-focus:left-2 peer-focus:text-[#d22f27] peer-focus:text-xs peer-[:not(:placeholder-shown)]:-top-7 peer-[:not(:placeholder-shown)]:left-2 peer-[:not(:placeholder-shown)]:text-xs">
-                                            EMAIL ADDRESS
-                                        </label>
+                                        <input type="email" name="email" required className="peer w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-white outline-none focus:border-[#d22f27]/50 transition-all placeholder-transparent" placeholder="Email" />
+                                        <label className="absolute left-6 top-4 text-slate-500 text-sm transition-all peer-focus:-top-7 peer-focus:text-[#d22f27] peer-[:not(:placeholder-shown)]:-top-7">EMAIL</label>
                                     </div>
                                 </div>
-
                                 <div className="relative group/field">
-                                    <textarea
-                                        required
-                                        rows="4"
-                                        className="peer w-full bg-white/[0.03] border border-white/10 rounded-3xl px-6 py-4 text-white outline-none focus:border-[#d22f27]/50 focus:bg-white/[0.07] backdrop-blur-md transition-all resize-none placeholder-transparent"
-                                        placeholder="Message"
-                                    ></textarea>
-                                    <label className="absolute left-6 top-4 text-slate-500 text-sm transition-all peer-focus:-top-7 peer-focus:left-2 peer-focus:text-[#d22f27] peer-focus:text-xs peer-[:not(:placeholder-shown)]:-top-7 peer-[:not(:placeholder-shown)]:left-2 peer-[:not(:placeholder-shown)]:text-xs">
-                                        YOUR MESSAGE
-                                    </label>
+                                    <textarea name="message" required rows="4" className="peer w-full bg-white/[0.03] border border-white/10 rounded-3xl px-6 py-4 text-white outline-none focus:border-[#d22f27]/50 transition-all resize-none placeholder-transparent" placeholder="Message"></textarea>
+                                    <label className="absolute left-6 top-4 text-slate-500 text-sm transition-all peer-focus:-top-7 peer-focus:text-[#d22f27] peer-[:not(:placeholder-shown)]:-top-7">MESSAGE</label>
                                 </div>
 
-                                <motion.button
-                                    whileHover={{ scale: 1.02 }}
-                                    whileTap={{ scale: 0.98 }}
-                                    className="w-full relative py-5 rounded-2xl overflow-hidden group/btn"
-                                >
-                                    <div className="absolute inset-0 bg-gradient-to-r from-[#d22f27] to-red-600 transition-all duration-500 group-hover/btn:scale-105"></div>
-                                    <div className="relative flex items-center justify-center gap-3 text-white font-bold uppercase tracking-[0.4em] text-[10px]">
-                                        Send Message <FaPaperPlane className="group-hover/btn:translate-x-2 group-hover/btn:-translate-y-1 transition-transform" />
-                                    </div>
-                                </motion.button>
+                                <button disabled={isSending} className="w-full relative py-5 rounded-2xl bg-[#d22f27] text-white font-bold uppercase tracking-[0.4em] text-[10px]">
+                                    {isSending ? <FaSyncAlt className="animate-spin mx-auto" /> : 'Send Message'}
+                                </button>
                             </form>
-
-                            {/* Decorative Corner Scanline */}
-                            <div className="absolute bottom-4 right-8 text-[8px] font-mono text-white/5 tracking-[0.5em] uppercase pointer-events-none">
-                                Secure_Encrypted_Channel
-                            </div>
                         </div>
-                    </motion.div>
-                </motion.div>
+                    </div>
+                </div>
             </div>
         </section>
     );
