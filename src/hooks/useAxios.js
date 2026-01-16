@@ -4,7 +4,7 @@ import axios from 'axios';
 const useAxios = () => {
     const axiosSecure = useMemo(() => {
         return axios.create({
-            baseURL: 'http://localhost:3000',
+            baseURL: 'https://inception-server.vercel.app',
             headers: {
                 'Content-Type': 'application/json'
             }

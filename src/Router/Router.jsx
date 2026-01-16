@@ -57,7 +57,7 @@ const router = createBrowserRouter([
             </AdminRoute>,
         children: [
             {
-                index: true, // এটিই ওভারভিউ দেখাবে যখন ইউজার সরাসরি /admin এ থাকবে
+                index: true, 
                 Component: Overview
             },
             {
