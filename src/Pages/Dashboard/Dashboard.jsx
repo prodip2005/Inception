@@ -58,9 +58,7 @@ const Dashboard = () => {
                                 <span className="hidden md:block font-mono text-[10px] font-bold uppercase tracking-widest text-left">
                                     {item.label}
                                 </span>
-                                {item.alert && (
-                                    <span className="absolute right-3 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-[#d22f27] rounded-full animate-pulse shadow-[0_0_8px_#d22f27]"></span>
-                                )}
+                                
                             </Link>
                         );
                     })}
